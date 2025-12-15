@@ -2,7 +2,7 @@
 
 **Fixify** is a premium, on-demand home repair and maintenance platform designed to simplify household services. Think of it as "Uber for Repairs"—connecting homeowners with trusted experts for electronics, plumbing, cleaning, and more, all with a high-end, seamless user experience.
 
-![Fixify Platform](public/file.svg)
+![Fixify Platform](public/fixify-preview.png)
 
 ## ✨ Key Features
 
