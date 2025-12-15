@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+:root {
+  /* Fixify Premium Theme Defaults */
+  --background: #ffffff;
+  /* Base White */
+  --foreground: #00171f;
+  /* Charcoal Text */
+
+  /* Brand Colors */
+  --primary: #00a8e8;
+  /* Teal/Blue Accent */
+  --primary-foreground: #ffffff;
+
+  --button-primary: #007ea7;
+  /* Darker Cyan for Buttons */
+
+  --secondary: #F7F7F8;
+  /* Soft Gray Section BG */
+  --secondary-foreground: #00171f;
+
+  --accent: #FCEEC0;
+  /* Pastel Yellow */
+  --accent-foreground: #00171f;
+
+  --muted: #F7F7F8;
+  --muted-foreground: #71717a;
+
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+
+  --border: #e4e4e7;
+  --input: #e4e4e7;
+  --ring: #00a8e8;
+
+  --radius: 1.5rem;
+  /* 24px Rounded Corners */
+
+  /* Legacy / Custom Aliases */
+  --charcoal: #00171f;
+  --surface: #ffffff;
+
+  /* Retained for animations if needed, but primary palette takes precedence */
+  --white: #ffffff;
+  --black: #000000;
+  --transparent: transparent;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-button-primary: var(--button-primary);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius: var(--radius);
+
+  --color-surface: var(--surface);
+  --color-charcoal: var(--charcoal);
+
+  --font-sans: var(--font-poppins);
+  --font-heading: var(--font-poppins);
+
+  --animate-shiny-text: shiny-text 8s infinite;
+  --animate-aurora: aurora 60s linear infinite;
+  --animate-shine: shine 5s linear infinite;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 100%;
+  }
+
+  100% {
+    background-position: -100%;
+  }
+}
+
+@keyframes shiny-text {
+
+  0%,
+  90%,
+  100% {
+    background-position: calc(-100% - var(--shiny-width)) 0;
+  }
+
+  30%,
+  60% {
+    background-position: calc(100% + var(--shiny-width)) 0;
+  }
+}
+
+@keyframes aurora {
+  from {
+    background-position: 50% 50%, 50% 50%;
+  }
+
+  to {
+    background-position: 350% 50%, 350% 50%;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  letter-spacing: -0.05em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

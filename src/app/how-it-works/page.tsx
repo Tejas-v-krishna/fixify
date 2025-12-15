@@ -1,0 +1,111 @@
+"use client";
+
+import { Button } from "@/components/ui/Button";
+import { Card } from "@/components/ui/Card";
+import { ArrowLeft, ArrowRight, CheckCircle2, Clock, MapPin, ShieldCheck, Truck, User } from "lucide-react";
+import Link from "next/link";
+import { motion } from "framer-motion";
+
+export default function HowItWorksPage() {
+    const steps = [
+        {
+            num: "01",
+            title: "Book a Pickup",
+            desc: "Choose the item, select a pickup time, and confirm your request.",
+            icon: Clock,
+            color: "text-blue-500",
+            bg: "bg-blue-500/10"
+        },
+        {
+            num: "02",
+            title: "Pickup & Repair",
+            desc: "A verified agent collects your item and assigns it to a trusted technician.",
+            icon: User,
+            color: "text-orange-500",
+            bg: "bg-orange-500/10"
+        },
+        {
+            num: "03",
+            title: "Delivery Back Home",
+            desc: "Get your repaired item delivered safely to your doorstep.",
+            icon: Truck,
+            color: "text-green-500",
+            bg: "bg-green-500/10"
+        }
+    ];
+
+    const trustFeatures = [
+        { title: "Verified Technicians", icon: CheckCircle2 },
+        { title: "Transparent Pricing", icon: CheckCircle2 },
+        { title: "Real-time Updates", icon: CheckCircle2 },
+        { title: "Secure Handling", icon: ShieldCheck },
+    ];
+
+    return (
+        <div className="min-h-screen bg-secondary pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto">
+                {/* Header */}
+                <div className="text-center mb-20">
+                    <h1 className="text-4xl sm:text-5xl font-heading font-bold text-foreground mb-6">
+                        How Fixify Works
+                    </h1>
+                    <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                        We've simplified repair services into three easy steps. No more hassle, just results.
+                    </p>
+                </div>
+
+                {/* Steps Section */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24 relative">
+                    {/* Connecting Line (Desktop) */}
+                    <div className="hidden md:block absolute top-[2.5rem] left-[16%] right-[16%] h-0.5 bg-gradient-to-r from-blue-500 via-orange-500 to-green-500 opacity-20" />
+
+                    {steps.map((step, index) => (
+                        <motion.div
+                            key={index}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.2 }}
+                            className="relative"
+                        >
+                            <Card className="h-full p-8 flex flex-col items-center text-center bg-white/80 backdrop-blur-md border-white/20" hoverEffect>
+                                <div className={`w-20 h-20 rounded-full ${step.bg} ${step.color} flex items-center justify-center text-3xl font-bold mb-6 relative z-10 ring-4 ring-white`}>
+                                    {step.num}
+                                </div>
+                                <h3 className="text-2xl font-bold text-foreground mb-4">{step.title}</h3>
+                                <p className="text-muted-foreground text-lg leading-relaxed">{step.desc}</p>
+                            </Card>
+                        </motion.div>
+                    ))}
+                </div>
+
+                {/* Trust Section */}
+                <Card className="p-12 bg-charcoal text-white text-center rounded-3xl overflow-hidden relative" hoverEffect={false}>
+                    <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/5 to-transparent opacity-50" />
+
+                    <div className="relative z-10">
+                        <h2 className="text-3xl font-bold mb-10">Why Choose Fixify?</h2>
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                            {trustFeatures.map((feature, i) => (
+                                <div key={i} className="flex flex-col items-center gap-3">
+                                    <feature.icon className="w-8 h-8 text-primary" />
+                                    <span className="font-medium text-lg">{feature.title}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </Card>
+
+                {/* CTA */}
+                <div className="mt-20 text-center">
+                    <Link href="/book">
+                        <Button size="lg" className="h-14 px-10 rounded-full text-lg shadow-xl shadow-primary/25">
+                            Book a Pickup <ArrowRight className="ml-2 w-5 h-5" />
+                        </Button>
+                    </Link>
+                    <p className="mt-4 text-sm text-muted-foreground">Takes less than a minute</p>
+                </div>
+            </div>
+        </div>
+    );
+}
