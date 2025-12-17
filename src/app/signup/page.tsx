@@ -1,5 +1,6 @@
 "use client";
 
+import { createClient } from "@/utils/supabase/client";
 import { AuthPage, Testimonial } from "@/components/ui/sign-in";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
@@ -28,14 +29,43 @@ const testimonials: Testimonial[] = [
 export default function SignupPage() {
     const router = useRouter();
 
-    const handleSignUp = (event: React.FormEvent<HTMLFormElement>) => {
+    const handleSignUp = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        toast.success("Account created!", { description: "Welcome to Gofex." });
-        setTimeout(() => router.push("/"), 1500);
+        const formData = new FormData(event.currentTarget);
+        const email = formData.get("email") as string;
+        const password = formData.get("password") as string;
+
+        const supabase = createClient();
+
+        const { error } = await supabase.auth.signUp({
+            email,
+            password,
+            options: {
+                emailRedirectTo: `${location.origin}/auth/callback`,
+            },
+        });
+
+        if (error) {
+            toast.error("Signup failed", { description: error.message });
+            return;
+        }
+
+        toast.success("Account created!", { description: "Check your email to confirm." });
+        // Optionally redirect or show a "Check your email" state
     };
 
-    const handleGoogleSignIn = () => {
-        toast.info("Google Sign-Up", { description: "Creating your account..." });
+    const handleGoogleSignIn = async () => {
+        const supabase = createClient();
+        const { error } = await supabase.auth.signInWithOAuth({
+            provider: 'google',
+            options: {
+                redirectTo: `${location.origin}/auth/callback`,
+            },
+        });
+
+        if (error) {
+            toast.error("Google Sign-Up failed", { description: error.message });
+        }
     };
 
     return (

@@ -7,6 +7,8 @@ import { useTheme } from 'next-themes';
 import { Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { createClient } from '@/utils/supabase/client';
+import { User } from '@supabase/supabase-js';
 
 export function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -14,10 +16,23 @@ export function Navbar() {
     const [mounted, setMounted] = useState(false);
     const [hoveredItem, setHoveredItem] = useState<string | null>(null);
     const [isNavbarHovered, setIsNavbarHovered] = useState(false);
+    const [user, setUser] = useState<User | null>(null);
 
     // Prevent hydration mismatch
     useEffect(() => {
         setMounted(true);
+        const supabase = createClient();
+        supabase.auth.getSession().then(({ data: { session } }) => {
+            setUser(session?.user ?? null);
+        });
+
+        const {
+            data: { subscription },
+        } = supabase.auth.onAuthStateChange((_event, session) => {
+            setUser(session?.user ?? null);
+        });
+
+        return () => subscription.unsubscribe();
     }, []);
 
     const toggleTheme = (checked: boolean) => {
@@ -131,12 +146,24 @@ export function Navbar() {
                                 <FramerThemeToggle />
                             </div>
                             <div className="h-4 w-px bg-border/50" />
-                            <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground font-medium">Log In</Button>
-                            <Link href="/book">
-                                <Button size="sm" className="bg-primary text-background hover:bg-primary/90 rounded-full font-medium px-5">
-                                    Book a demo
-                                </Button>
-                            </Link>
+                            {user ? (
+                                <Link href="/dashboard">
+                                    <Button size="sm" className="bg-primary text-background hover:bg-primary/90 rounded-full font-medium px-5">
+                                        Dashboard
+                                    </Button>
+                                </Link>
+                            ) : (
+                                <>
+                                    <Link href="/login">
+                                        <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground font-medium">Log In</Button>
+                                    </Link>
+                                    <Link href="/signup">
+                                        <Button size="sm" className="bg-primary text-background hover:bg-primary/90 rounded-full font-medium px-5">
+                                            Get Started
+                                        </Button>
+                                    </Link>
+                                </>
+                            )}
                         </div>
 
                         {/* Mobile Menu Button */}
@@ -175,10 +202,20 @@ export function Navbar() {
                                     </Link>
                                 ))}
                                 <div className="pt-4 flex flex-col gap-3">
-                                    <Button variant="ghost" className="w-full justify-start text-muted-foreground hover:text-foreground">Log In</Button>
-                                    <Link href="/book" onClick={() => setIsOpen(false)}>
-                                        <Button className="w-full bg-primary text-background">Book a demo</Button>
-                                    </Link>
+                                    {user ? (
+                                        <Link href="/dashboard" onClick={() => setIsOpen(false)}>
+                                            <Button className="w-full bg-primary text-background">Dashboard</Button>
+                                        </Link>
+                                    ) : (
+                                        <>
+                                            <Link href="/login" onClick={() => setIsOpen(false)}>
+                                                <Button variant="ghost" className="w-full justify-start text-muted-foreground hover:text-foreground">Log In</Button>
+                                            </Link>
+                                            <Link href="/signup" onClick={() => setIsOpen(false)}>
+                                                <Button className="w-full bg-primary text-background">Get Started</Button>
+                                            </Link>
+                                        </>
+                                    )}
                                 </div>
                             </div>
                         </motion.div>

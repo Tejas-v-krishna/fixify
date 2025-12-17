@@ -1,5 +1,6 @@
 "use client";
 
+import { createClient } from "@/utils/supabase/client";
 import { AuthPage, Testimonial } from "@/components/ui/sign-in";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
@@ -28,18 +29,47 @@ const testimonials: Testimonial[] = [
 export default function LoginPage() {
     const router = useRouter();
 
-    const handleSignIn = (event: React.FormEvent<HTMLFormElement>) => {
+    const handleSignIn = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        const formData = new FormData(event.currentTarget);
+        const email = formData.get("email") as string;
+        const password = formData.get("password") as string;
+
+        const supabase = createClient();
+
+        const { error } = await supabase.auth.signInWithPassword({
+            email,
+            password,
+        });
+
+        if (error) {
+            toast.error("Login failed", { description: error.message });
+            return;
+        }
+
         toast.success("Welcome back!", { description: "Logging you in..." });
-        setTimeout(() => router.push("/"), 1500);
+        router.refresh(); // Refresh to update server components with new session
+        router.push("/");
     };
 
-    const handleGoogleSignIn = () => {
-        toast.info("Google Sign-In", { description: "Connecting to your account..." });
+    const handleGoogleSignIn = async () => {
+        const supabase = createClient();
+        const { error } = await supabase.auth.signInWithOAuth({
+            provider: 'google',
+            options: {
+                redirectTo: `${location.origin}/auth/callback`,
+            },
+        });
+
+        if (error) {
+            toast.error("Google Sign-In failed", { description: error.message });
+        }
     };
 
-    const handleResetPassword = () => {
-        toast("Reset Password", { description: "Link sent to your email." });
+    const handleResetPassword = async () => {
+        // This is a placeholder as the UI component might not expose the email directly here for reset
+        // Ideally, we'd have a separate forgot password flow or modal.
+        toast("Reset Password", { description: "Feature coming soon." });
     };
 
     return (
