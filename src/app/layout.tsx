@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
 import "./globals.css";
 import { Header1 } from "@/components/ui/header";
 import { Footer } from "@/components/Footer";
+import { Toaster } from "@/components/ui/sonner";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Outfit } from "next/font/google"; // Closest match to Google Sans
 
-const poppins = Poppins({
-  variable: "--font-poppins",
-  weight: ["400", "500", "600", "700"],
+const outfit = Outfit({
   subsets: ["latin"],
+  variable: "--font-outfit",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -21,17 +23,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={`${outfit.variable}`}>
       <body
-        className={`${poppins.variable} antialiased font-sans selection:bg-white/20`}
+        className={`antialiased font-sans selection:bg-white/20`}
+        suppressHydrationWarning
       >
-        <div className="flex flex-col min-h-screen">
-          <Header1 />
-          <main className="flex-grow">
-            {children}
-          </main>
-          <Footer />
-        </div>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="flex flex-col min-h-screen">
+            <Header1 />
+            <main className="flex-grow">
+              {children}
+            </main>
+            <Footer />
+            <Toaster />
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );

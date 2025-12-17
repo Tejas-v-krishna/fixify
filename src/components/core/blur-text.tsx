@@ -29,10 +29,10 @@ type BlurTextProps = {
 
 const BlurText = ({
     text = '',
-    delay = 200,
+    delay = 150,
     className = '',
     animateBy = 'words',
-    direction = 'top',
+    direction = 'bottom',
     threshold = 0.1,
     rootMargin = '0px',
     animationFrom,

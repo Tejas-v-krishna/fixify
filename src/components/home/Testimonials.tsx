@@ -1,34 +1,63 @@
-import { Card } from "../ui/Card";
-import { Star } from "lucide-react";
+"use client";
+
+import { Quote, Star, CheckCircle } from "lucide-react";
 
 export function Testimonials() {
-    const reviews = [
-        { name: "Sarah J.", role: "Homeowner", text: "Incredible service! They fixed my broken laptop screen in 2 days. The pickup was seamless." },
-        { name: "Mike T.", role: "Designer", text: "I love the transparency. The tracking feature kept me updated every step of the way." },
-        { name: "Emily R.", role: "Student", text: "Saved my favorite sneakers from the trash. They look brand new! Highly recommend." },
-    ];
-
     return (
-        <section className="py-16 md:py-24 bg-surface">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 className="font-heading font-bold text-3xl md:text-4xl text-charcoal text-center mb-16">
-                    Trusted by Thousands
-                </h2>
+        <section className="py-24 bg-background border-t border-border dark:border-white/5 relative overflow-hidden">
+            {/* Background Gradients */}
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#818CF8]/10 rounded-full blur-[120px] pointer-events-none translate-x-1/2 -translate-y-1/2" />
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {reviews.map((review, index) => (
-                        <Card key={index} className="p-8">
-                            <div className="flex gap-1 mb-4 text-yellow-400">
-                                {[1, 2, 3, 4, 5].map((i) => (
-                                    <Star key={i} size={16} fill="currentColor" />
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="text-center mb-16">
+                    <h2 className="text-3xl md:text-5xl font-bold text-foreground dark:text-white mb-4">
+                        10,000+ devices restored. <br className="hidden md:block" />
+                        <span className="text-muted-foreground dark:text-[#A0A0C0]">Here is the feedback.</span>
+                    </h2>
+                </div>
+
+                <div className="grid md:grid-cols-3 gap-8">
+                    {[
+                        {
+                            quote: "I dropped my iPad two days before a client pitch. Fixify picked it up within 20 mins and returned it the same evening. Absolute lifesaver.",
+                            author: "Arjun M.",
+                            role: "Architect",
+                            tag: "The Professional"
+                        },
+                        {
+                            quote: "The transparency is what sold me. I could see exactly when my son's console reached the lab and when the repair started. No guessing.",
+                            author: "Priya S.",
+                            role: "Homemaker",
+                            tag: "The Parent"
+                        },
+                        {
+                            quote: "I was worried about my data. The 'Repair Mode' guide they sent was very reassuring. Professional from start to finish.",
+                            author: "Rohan K.",
+                            role: "Software Engineer",
+                            tag: "The Skeptic"
+                        }
+                    ].map((item, i) => (
+                        <div key={i} className="relative p-8 rounded-3xl bg-card dark:bg-white/5 border border-border dark:border-white/10 backdrop-blur-sm flex flex-col h-full hover:border-[#2DD4BF]/30 transition-all">
+                            <Quote className="absolute top-8 right-8 w-10 h-10 text-primary/10 dark:text-white/5 rotate-180" />
+
+                            <div className="flex items-center gap-1 mb-6">
+                                {[1, 2, 3, 4, 5].map((s) => (
+                                    <Star key={s} className="w-4 h-4 fill-[#2DD4BF] text-[#2DD4BF]" />
                                 ))}
                             </div>
-                            <p className="text-charcoal/70 mb-6 italic">"{review.text}"</p>
-                            <div>
-                                <p className="font-bold text-charcoal">{review.name}</p>
-                                <p className="text-xs text-charcoal/40">{review.role}</p>
+
+                            <p className="text-lg text-foreground dark:text-gray-200 leading-relaxed mb-8 flex-grow">
+                                "{item.quote}"
+                            </p>
+
+                            <div className="mt-auto">
+                                <div className="flex items-center gap-3 mb-1">
+                                    <div className="font-bold text-foreground dark:text-white text-lg">{item.author}</div>
+                                    <CheckCircle className="w-4 h-4 text-[#2DD4BF]" />
+                                </div>
+                                <div className="text-sm text-muted-foreground dark:text-[#A0A0C0]">{item.role}</div>
                             </div>
-                        </Card>
+                        </div>
                     ))}
                 </div>
             </div>

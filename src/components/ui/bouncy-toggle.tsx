@@ -1,85 +1,70 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { motion } from "framer-motion"
-import { cn } from "@/lib/utils"
+import { useState, useEffect } from "react";
+import { useTheme } from "next-themes";
+import { cn } from "@/lib/utils";
 
-interface BouncyToggleProps {
-    defaultChecked?: boolean
-    checked?: boolean
-    onChange?: (checked: boolean) => void
-    label?: string
-}
+export function PremiumToggle() {
+    const { theme, setTheme } = useTheme();
+    const [mounted, setMounted] = useState(false);
 
-export function PremiumToggle({ defaultChecked = false, checked, onChange, label }: BouncyToggleProps) {
-    const [internalChecked, setInternalChecked] = useState(defaultChecked)
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
-    // Controlled vs Uncontrolled
-    const isChecked = checked !== undefined ? checked : internalChecked
+    // Logic:
+    // Light Mode (Default/Unchecked) -> Show Moon
+    // Dark Mode (Checked) -> Show Sun
+    const isDark = mounted && (theme === "dark" || (theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches));
 
-    const handleToggle = () => {
-        const newValue = !isChecked
-        setInternalChecked(newValue)
-        onChange?.(newValue)
+    if (!mounted) {
+        return <div className="w-9 h-9 flex items-center justify-center animate-pulse"><div className="w-5 h-5 bg-zinc-300 rounded-full" /></div>;
     }
 
-    // Animation variants
-    // Thumb moves from left to right.
-    // We want a "bouncy" stretch effect potentially? or just smooth spring.
-    // The user linked a "Bouncy Toggle". 
-
     return (
-        <div className="flex items-center gap-3">
-            {label && (
-                <span
-                    className={cn(
-                        "text-sm font-medium transition-colors duration-300",
-                        isChecked ? "text-foreground" : "text-muted-foreground",
-                    )}
-                >
-                    {label}
-                </span>
-            )}
-            <button
-                type="button"
-                role="switch"
-                aria-checked={isChecked}
-                onClick={handleToggle}
+        <button
+            onClick={() => setTheme(isDark ? "light" : "dark")}
+            className="relative w-9 h-9 flex items-center justify-center cursor-pointer outline-none"
+            aria-label="Toggle Theme"
+        >
+            {/* Icons Context: Grid overlap approach simulated with absolute positioning */}
+
+            {/* Moon Icon */}
+            {/* CSS: transition: transform 500ms; transition-delay: 200ms (when entering? No, looks like base state has delay?) */}
+            {/* CSS Logic: 
+                icon--moon { transition-delay: 200ms }
+                checked + icon--moon { transform: rotate(360deg) scale(0); transition-delay: 0s (implied or inherited?) } 
+                Actually the provided CSS puts delay on the base class .icon--moon. 
+                When checked, it rotates and scales out.
+            */}
+            <div
                 className={cn(
-                    "relative h-9 w-[3.25rem] rounded-full p-1 transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-                    // Background Color Logic:
-                    // User: "color should not change to green instead it should change between white and black"
-                    // Let's interpret: Background of the track.
-                    // Dark Mode (checked=true): Track should be White? Thumb Black? 
-                    // User said: "default mode which is dark is enabled [isChecked=true], it should be black inside the toggle button" -> Thumb is black.
-                    // Light Mode (checked=false): Thumb is white.
-                    // So Track colors? Maybe Gray?
-                    // Let's try: Dark Mode (Active) -> Track White, Thumb Black.
-                    // Light Mode (Inactive) -> Track Black, Thumb White.
-                    // This creates high contrast.
-                    isChecked ? "bg-white" : "bg-zinc-900"
+                    "absolute inset-0 flex items-center justify-center transition-transform duration-500 ease-in-out text-[#b4b4b4]",
+                    isDark
+                        ? "scale-0 rotate-[360deg]" // Checked state (Dark): Hidden
+                        : "scale-100 rotate-0 delay-200" // Unchecked state (Light): Visible, Delayed entry?
                 )}
             >
-                <motion.div
-                    layout
-                    transition={{
-                        type: "spring",
-                        stiffness: 500,
-                        damping: 30
-                    }}
-                    className={cn(
-                        "h-7 w-7 rounded-full shadow-sm",
-                        // Thumb Color Logic:
-                        // Dark Mode (checked=true) -> Black
-                        // Light Mode (checked=false) -> White
-                        isChecked ? "bg-black" : "bg-white"
-                    )}
-                    style={{
-                        originY: 0.5,
-                        x: isChecked ? 24 : 0 // 3.25rem (52px) width - 1.75rem (28px) thumb - 4px padding = ~20px + extra
-                    }}
-                />
-            </button>
-        </div>
-    )
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width={20} height={20}>
+                    <path fillRule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" clipRule="evenodd" />
+                </svg>
+            </div>
+
+            {/* Sun Icon */}
+            {/* CSS: transform: scale(0); color: #ffa500; */}
+            {/* Checked ~ icon--sun { transition-delay: 200ms; transform: scale(1) rotate(360deg); } */}
+            <div
+                className={cn(
+                    "absolute inset-0 flex items-center justify-center transition-transform duration-500 ease-in-out text-[#ffa500]",
+                    isDark
+                        ? "scale-100 rotate-[360deg] delay-200" // Checked state (Dark): Visible, Delayed entry
+                        : "scale-0 rotate-0" // Unchecked state (Light): Hidden
+                )}
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width={18} height={18}>
+                    <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z" />
+                </svg>
+            </div>
+        </button>
+    );
 }

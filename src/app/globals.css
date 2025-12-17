@@ -1,49 +1,78 @@
 @import "tailwindcss";
+@variant dark (&:where(.dark, .dark *));
 
 :root {
-  /* Fixify Premium Theme Defaults */
-  --background: #ffffff;
-  /* Base White */
-  --foreground: #00171f;
-  /* Charcoal Text */
+  /* Neo-Restoration Theme - Light Mode */
+  --background: #FAFAFA;
+  --foreground: #1E1B4B;
 
-  /* Brand Colors */
-  --primary: #00a8e8;
-  /* Teal/Blue Accent */
-  --primary-foreground: #ffffff;
+  --card: #FFFFFF;
+  --card-foreground: #1E1B4B;
 
-  --button-primary: #007ea7;
-  /* Darker Cyan for Buttons */
+  --popover: #FFFFFF;
+  --popover-foreground: #1E1B4B;
 
-  --secondary: #F7F7F8;
-  /* Soft Gray Section BG */
-  --secondary-foreground: #00171f;
+  --primary: #0D9488;
+  /* Darker Teal for readability on light */
+  --primary-foreground: #FFFFFF;
 
-  --accent: #FCEEC0;
-  /* Pastel Yellow */
-  --accent-foreground: #00171f;
+  --secondary: #F1F5F9;
+  --secondary-foreground: #1E1B4B;
 
-  --muted: #F7F7F8;
-  --muted-foreground: #71717a;
+  --muted: #F1F5F9;
+  --muted-foreground: #64748B;
+
+  --accent: #818CF8;
+  --accent-foreground: #FFFFFF;
 
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
 
-  --border: #e4e4e7;
-  --input: #e4e4e7;
-  --ring: #00a8e8;
+  --border: #E2E8F0;
+  --input: #E2E8F0;
+  --ring: #2DD4BF;
 
   --radius: 1.5rem;
-  /* 24px Rounded Corners */
 
-  /* Legacy / Custom Aliases */
-  --charcoal: #00171f;
-  --surface: #ffffff;
+  /* Custom Theme Specifics */
+  --color-action: #2DD4BF;
+  --color-action-hover: #14B8A6;
+  --shiny-width: 100px;
+}
 
-  /* Retained for animations if needed, but primary palette takes precedence */
-  --white: #ffffff;
-  --black: #000000;
-  --transparent: transparent;
+/* We use the .dark class for dark mode as per next-themes */
+.dark {
+  /* Neo-Restoration Theme - Dark Mode */
+  --background: #0F0E17;
+  --foreground: #FFFFFF;
+
+  --card: rgba(255, 255, 255, 0.03);
+  /* Glassy Dark */
+  --card-foreground: #FFFFFF;
+
+  --popover: #0F0E17;
+  --popover-foreground: #FFFFFF;
+
+  --primary: #2DD4BF;
+  /* Electric Mint */
+  --primary-foreground: #0F0E17;
+
+  --secondary: #1E1B4B;
+  --secondary-foreground: #FFFFFF;
+
+  --muted: rgba(20, 20, 30, 0.6);
+  --muted-foreground: #A0A0C0;
+
+  --accent: #818CF8;
+  --accent-foreground: #FFFFFF;
+
+  --destructive: #7f1d1d;
+  --destructive-foreground: #ffffff;
+
+  --border: rgba(45, 212, 191, 0.2);
+  /* Subtle Mint Border */
+  --input: rgba(45, 212, 191, 0.2);
+  --ring: #2DD4BF;
 }
 
 @theme inline {
@@ -68,12 +97,15 @@
   --color-surface: var(--surface);
   --color-charcoal: var(--charcoal);
 
-  --font-sans: var(--font-poppins);
-  --font-heading: var(--font-poppins);
+  --font-google-sans: "Google Sans", var(--font-outfit), sans-serif;
+  --font-sans: var(--font-google-sans);
+  --font-heading: var(--font-google-sans);
 
   --animate-shiny-text: shiny-text 8s infinite;
   --animate-aurora: aurora 60s linear infinite;
   --animate-shine: shine 5s linear infinite;
+  --animate-star-movement-bottom: star-movement-bottom 6s linear infinite alternate;
+  --animate-star-movement-top: star-movement-top 6s linear infinite alternate;
 }
 
 @keyframes shine {
@@ -110,13 +142,167 @@
   }
 }
 
+@keyframes star-movement-bottom {
+  0% {
+    transform: translate(0%, 0%);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-100%, 0%);
+    opacity: 0;
+  }
+}
+
+@keyframes star-movement-top {
+  0% {
+    transform: translate(0%, 0%);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(100%, 0%);
+    opacity: 0;
+  }
+}
+
 body {
   margin: 0;
   padding: 0;
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "GRAD" 0;
   letter-spacing: -0.05em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Sign In Page Animations */
+@layer utilities {
+  .animate-element {
+    opacity: 0;
+    filter: blur(4px);
+    transform: translateY(20px);
+    animation: fadeSlideIn 0.8s ease-out forwards;
+  }
+
+  .animate-slide-right {
+    opacity: 0;
+    filter: blur(4px);
+    transform: translateX(-20px);
+    animation: slideRightIn 0.8s ease-out forwards;
+  }
+
+  .animate-testimonial {
+    opacity: 0;
+    filter: blur(4px);
+    transform: translateY(20px) scale(0.95);
+    animation: testimonialIn 0.5s ease-out forwards;
+  }
+
+  .animate-delay-100 {
+    animation-delay: 0.1s;
+  }
+
+  .animate-delay-200 {
+    animation-delay: 0.2s;
+  }
+
+  .animate-delay-300 {
+    animation-delay: 0.3s;
+  }
+
+  .animate-delay-400 {
+    animation-delay: 0.4s;
+  }
+
+  .animate-delay-500 {
+    animation-delay: 0.5s;
+  }
+
+  .animate-delay-600 {
+    animation-delay: 0.6s;
+  }
+
+  .animate-delay-700 {
+    animation-delay: 0.7s;
+  }
+
+  .animate-delay-800 {
+    animation-delay: 0.8s;
+  }
+
+  .animate-delay-900 {
+    animation-delay: 0.9s;
+  }
+
+  .animate-delay-1000 {
+    animation-delay: 1.0s;
+  }
+
+  .animate-delay-1200 {
+    animation-delay: 1.2s;
+  }
+
+  .animate-delay-1400 {
+    animation-delay: 1.4s;
+  }
+
+  .custom-checkbox {
+    appearance: none;
+    background-color: transparent;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 1px solid currentColor;
+    border-radius: 0.15em;
+    display: grid;
+    place-content: center;
+  }
+
+  .custom-checkbox::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--primary);
+    background-color: var(--primary);
+    transform-origin: center;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  }
+
+  .custom-checkbox:checked::before {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeSlideIn {
+  to {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0px);
+  }
+}
+
+@keyframes slideRightIn {
+  to {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateX(0px);
+  }
+}
+
+@keyframes testimonialIn {
+  to {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0px) scale(1);
+  }
 }

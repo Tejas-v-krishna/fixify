@@ -1,49 +1,95 @@
 "use client";
 
-import { Card } from "../ui/Card";
-import { Smartphone, Armchair, Briefcase, Ruler, Watch, Zap } from "lucide-react";
 import { motion } from "framer-motion";
+import { Laptop, ShoppingBag, Home, Watch } from "lucide-react";
+import { cn } from "@/lib/utils";
 
-const categories = [
-    { icon: Smartphone, name: "Electronics", desc: "Phones, Laptops, Tablets" },
-    { icon: Armchair, name: "Furniture", desc: "Sofas, Chairs, Tables" },
-    { icon: Briefcase, name: "Bags & Luggage", desc: "Zippers, Handles, Wheels" },
-    { icon: Ruler, name: "Shoes", desc: "Cleaning, Sole Repair" }, // Ruler as placeholder or maybe Footprints
-    { icon: Zap, name: "Appliances", desc: "Microwave, Mixer, Iron" }, // Zap for electrical
-    { icon: Watch, name: "Accessories", desc: "Watches, Belts" },
+const labs = [
+    {
+        title: "The Tech Lab",
+        items: "Phones, Laptops, Drones, Consoles.",
+        copy: "Chip-level precision for your digital life.",
+        icon: Laptop,
+        color: "from-blue-500/20 to-indigo-500/20",
+        border: "group-hover:border-blue-500/50",
+        text_color: "text-blue-400"
+    },
+    {
+        title: "The Atelier",
+        items: "Shoes, Handbags, Jackets, Belts, Zippers.",
+        copy: "Master cobblers and leather experts using premium materials.",
+        icon: ShoppingBag,
+        color: "from-orange-500/20 to-amber-500/20",
+        border: "group-hover:border-orange-500/50",
+        text_color: "text-orange-400"
+    },
+    {
+        title: "The Home Hangar",
+        items: "Blenders, Irons, Microwaves, Umbrellas, Luggage.",
+        copy: "Restoring the daily essentials that run your home.",
+        icon: Home,
+        color: "from-emerald-500/20 to-green-500/20",
+        border: "group-hover:border-emerald-500/50",
+        text_color: "text-emerald-400"
+    },
+    {
+        title: "The Timepiece & Optical Lab",
+        items: "Analog Watches, Smartwatches, Eyeglass Frames.",
+        copy: "Micro-precision handling for delicate mechanisms.",
+        icon: Watch,
+        color: "from-purple-500/20 to-pink-500/20",
+        border: "group-hover:border-purple-500/50",
+        text_color: "text-purple-400"
+    }
 ];
 
 export function Services() {
     return (
-        <section className="py-32 bg-stone-50/50 dark:bg-zinc-900/20">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-20">
-                    <h2 className="font-heading font-bold text-3xl md:text-4xl text-foreground mb-6">
-                        We Fix Almost Everything
+        <section className="py-24 bg-background relative overflow-hidden" id="services">
+            {/* Background Gradients */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#2DD4BF]/5 rounded-full blur-[100px] pointer-events-none" />
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div className="text-center mb-16">
+                    <span className="inline-block py-1 px-3 rounded-full bg-[#2DD4BF]/10 text-[#2DD4BF] text-sm font-semibold tracking-wide mb-4 border border-[#2DD4BF]/20">
+                        OUR EXPERTISE
+                    </span>
+                    <h2 className="text-4xl md:text-5xl font-bold text-foreground dark:text-white mb-6">
+                        Specialized Labs for Every Item.
                     </h2>
-                    <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-                        Select a category to get started. Our experts can handle specific repairs with care.
+                    <p className="text-xl text-muted-foreground dark:text-[#A0A0C0] max-w-2xl mx-auto">
+                        We don't have "handymen." We have specialized experts for every material and mechanism.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-                    {categories.map((cat, index) => (
+                <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+                    {labs.map((lab, index) => (
                         <motion.div
                             key={index}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.1 }}
                             viewport={{ once: true }}
+                            transition={{ delay: index * 0.1 }}
+                            className="group relative p-1 rounded-3xl bg-gradient-to-br from-white/10 to-transparent dark:from-white/5 dark:to-white/0 hover:to-white/10 transition-colors"
                         >
-                            <Card hoverEffect className="h-full p-6 flex flex-col items-center text-center justify-center gap-4 cursor-pointer border-border/40 hover:border-primary/20 hover:bg-muted/50 transition-all bg-background/40 backdrop-blur-sm">
-                                <div className="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-2">
-                                    <cat.icon size={28} />
+                            <div className={cn(
+                                "h-full bg-card dark:bg-[#0F0E17]/80 backdrop-blur-xl rounded-[22px] p-8 border border-border dark:border-white/10 transition-colors",
+                                lab.border
+                            )}>
+                                <div className={cn(
+                                    "w-16 h-16 rounded-2xl bg-gradient-to-br flex items-center justify-center mb-6 transition-transform group-hover:scale-110",
+                                    lab.color,
+                                    lab.text_color
+                                )}>
+                                    <lab.icon size={32} />
                                 </div>
-                                <div>
-                                    <h3 className="font-heading font-semibold text-foreground mb-2">{cat.name}</h3>
-                                    <p className="text-sm text-muted-foreground leading-relaxed">{cat.desc}</p>
-                                </div>
-                            </Card>
+
+                                <h3 className="text-2xl font-bold text-foreground dark:text-white mb-2">{lab.title}</h3>
+                                <div className="text-sm font-medium text-muted-foreground dark:text-white/60 mb-4">{lab.items}</div>
+                                <p className="text-lg text-foreground/80 dark:text-[#A0A0C0] leading-relaxed">
+                                    {lab.copy}
+                                </p>
+                            </div>
                         </motion.div>
                     ))}
                 </div>
