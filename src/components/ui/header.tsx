@@ -161,7 +161,7 @@ export function Header1() {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                                 </svg>
                             </div>
-                            <span className={cn("text-lg font-bold tracking-tight transition-colors", textColor)}>fixify</span>
+                            <span className={cn("text-lg font-bold tracking-tight transition-colors", textColor)}>gofex</span>
                         </Link>
                     </div>
 

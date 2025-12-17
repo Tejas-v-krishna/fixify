@@ -13,7 +13,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Fixify - Premium Request & Pickup",
+  title: "Gofex - Premium Request & Pickup",
   description: "Doorstep pickup and delivery for all your repair needs.",
 };
 

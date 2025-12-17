@@ -1,8 +1,8 @@
-# Fixify
+# Gofex
 
-**Fixify** is a premium, on-demand home repair and maintenance platform designed to simplify household services. Think of it as "Uber for Repairs"—connecting homeowners with trusted experts for electronics, plumbing, cleaning, and more, all with a high-end, seamless user experience.
+**Gofex** is a premium, on-demand home repair and maintenance platform designed to simplify household services. Think of it as "Uber for Repairs"—connecting homeowners with trusted experts for electronics, plumbing, cleaning, and more, all with a high-end, seamless user experience.
 
-![Fixify Platform](public/hero-preview.png)
+![Gofex Platform](public/hero-preview.png)
 
 ## Key Features
 
@@ -77,4 +77,4 @@ This project is currently in **private development**.
 
 ---
 
-*Built by Fixify Team.*
+*Built by Gofex Team.*

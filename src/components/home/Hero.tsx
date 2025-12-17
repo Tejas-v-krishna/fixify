@@ -48,7 +48,7 @@ export function Hero() {
                         className="mb-6"
                     >
                         <span className="px-4 py-1.5 rounded-full border border-[#2DD4BF]/30 bg-[#2DD4BF]/10 text-[#2DD4BF] text-sm font-medium tracking-wide">
-                            ✨ Introducing Fixify+
+                            ✨ Introducing Gofex+
                         </span>
                     </motion.div>
 
@@ -137,7 +137,7 @@ export function Hero() {
                             CARD 1 (Bottom): Order Placed
                             Z-Index: 10
                         ========================================= */}
-                        <div className="absolute top-[335px] left-[-40px] w-full p-4 rounded-2xl border border-white/10 bg-[#0F0E17]/80 backdrop-blur-md shadow-2xl z-10 transition-transform hover:scale-105 duration-300">
+                        <div className="absolute top-[330px] left-[-40px] w-full p-4 rounded-2xl border border-white/10 bg-[#0F0E17]/80 backdrop-blur-md shadow-2xl z-10 transition-transform hover:scale-105 duration-300">
                             <div className="flex items-center gap-4">
                                 <div className="p-3 rounded-full bg-white/5 border border-white/10">
                                     <Microwave className="w-6 h-6 text-gray-400" />
