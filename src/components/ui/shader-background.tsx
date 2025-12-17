@@ -118,6 +118,7 @@ const BackgroundMesh = () => {
     return (
         <mesh>
             <planeGeometry args={[20, 20]} /> {/* Large plane to cover screen */}
+            {/* @ts-ignore */}
             <shaderLinesMaterial
                 ref={materialRef}
                 uColor1={new THREE.Color("#ffffff")}
