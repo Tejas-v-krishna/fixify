@@ -53,7 +53,7 @@ export default function HowItWorksPage() {
                 {/* Header */}
                 <div className="text-center mb-20">
                     <h1 className="text-4xl sm:text-5xl font-heading font-bold text-foreground dark:text-white mb-6">
-                        How Fixify <span className="text-[#818CF8]">Works</span>
+                        How Gofex <span className="text-[#818CF8]">Works</span>
                     </h1>
                     <p className="text-lg text-muted-foreground dark:text-[#A0A0C0] max-w-2xl mx-auto">
                         We've simplified repair services into three easy steps. No more hassle, just results.
@@ -90,7 +90,7 @@ export default function HowItWorksPage() {
                     <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/40 to-transparent dark:from-white/5 opacity-50" />
 
                     <div className="relative z-10">
-                        <h2 className="text-3xl font-bold mb-10 text-foreground dark:text-white">Why Choose Fixify?</h2>
+                        <h2 className="text-3xl font-bold mb-10 text-foreground dark:text-white">Why Choose Gofex?</h2>
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                             {trustFeatures.map((feature, i) => (
                                 <div key={i} className="flex flex-col items-center gap-3">
