@@ -1,24 +1,24 @@
-# Fixify 🛠️
+# Fixify
 
 **Fixify** is a premium, on-demand home repair and maintenance platform designed to simplify household services. Think of it as "Uber for Repairs"—connecting homeowners with trusted experts for electronics, plumbing, cleaning, and more, all with a high-end, seamless user experience.
 
-![Fixify Platform](public/fixify-preview.png)
+![Fixify Platform](public/hero-preview.png)
 
-## ✨ Key Features
+## Key Features
 
-- **🚀 Live Operations Stack**: A stunning 3D Hero visualization featuring floating isometric cards ("Order Placed", "In Transit", "Repair in Progress") that showcase specific repair stages with dynamic animations.
-- **✨ Dynamic Visuals**: Integrated `LightRays` WebGL background effects using `ogl` for a premium, immersive atmosphere.
-- **🚀 Modern Booking Flow**: A streamlined, step-by-step wizard for scheduling repairs, selecting devices, and getting instant price estimates.
-- **📍 Real-Time Tracking**: Interactive "Track Repair" system to visualize the status of your service (Pickup -> In Repair -> Delivery).
-- **🔒 Secure Authentication**: Beautiful, glassmorphism-styled Login and Cleanup pages.
-- **💎 Premium UI/UX**:
+- **Live Operations Stack**: A stunning 3D Hero visualization featuring floating isometric cards ("Order Placed", "In Transit", "Repair in Progress") that showcase specific repair stages with dynamic animations.
+- **Dynamic Visuals**: Integrated `LightRays` WebGL background effects using `ogl` for a premium, immersive atmosphere.
+- **Modern Booking Flow**: A streamlined, step-by-step wizard for scheduling repairs, selecting devices, and getting instant price estimates.
+- **Real-Time Tracking**: Interactive "Track Repair" system to visualize the status of your service (Pickup -> In Repair -> Delivery).
+- **Secure Authentication**: Beautiful, glassmorphism-styled Login and Cleanup pages.
+- **Premium UI/UX**:
     - **Glass Aesthetic**: Dark mode with blur overlays, matte glass headers, and radiant gradients.
     - **Smooth Animations**: Powered by `framer-motion` for page transitions and micro-interactions.
     - **Interactive Navbar**: Floating pill design with focus-blur and cursor spotlight effects.
     - **Infinite Partner Slider**: Seamless, scrolling marquee of trusted brand partners.
-- **📱 Responsive Design**: Fully optimized for desktop, tablet, and mobile devices.
+- **Responsive Design**: Fully optimized for desktop, tablet, and mobile devices.
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 Built with the latest modern web technologies:
 
@@ -30,7 +30,7 @@ Built with the latest modern web technologies:
 - **Icons**: [Lucide React](https://lucide.dev/)
 - **Deployment**: Vercel / Docker ready
 
-## 🚀 Getting Started
+## Getting Started
 
 Follow these steps to run the project locally:
 
@@ -55,7 +55,7 @@ Follow these steps to run the project locally:
 4.  **Open the app**:
     Visit [http://localhost:3000](http://localhost:3000) in your browser.
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 ├── src/
@@ -71,10 +71,10 @@ Follow these steps to run the project locally:
 └── tsconfig.json         # TypeScript configuration
 ```
 
-## 🤝 Contributing
+## Contributing
 
 This project is currently in **private development**.
 
 ---
 
-*Built with ❤️ by Fixify Team.*
+*Built by Fixify Team.*
