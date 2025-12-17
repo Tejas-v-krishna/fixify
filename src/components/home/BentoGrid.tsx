@@ -42,7 +42,7 @@ export function BentoGrid() {
                 {/* Section Header */}
                 <div className="mb-16 text-center">
                     <h2 className="font-serif italic text-4xl sm:text-5xl text-white mb-6">
-                        Why Choose Fixify?
+                        Why Choose Gofex?
                     </h2>
                     <p className="text-zinc-400 max-w-xl mx-auto text-lg font-light">
                         We combine technology with expert craftsmanship to deliver the smoothest repair experience possible.

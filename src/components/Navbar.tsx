@@ -56,7 +56,7 @@ export function Navbar() {
                                 <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary font-bold text-lg group-hover:bg-primary/20 transition-colors border border-primary/10">
                                     F
                                 </div>
-                                <span className="font-heading font-bold text-xl text-foreground tracking-tight">Fixify</span>
+                                <span className="font-heading font-bold text-xl text-foreground tracking-tight">Gofex</span>
                             </Link>
                         </div>
 

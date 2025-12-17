@@ -9,7 +9,7 @@ const testimonials: Testimonial[] = [
         avatarSrc: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&q=80",
         name: "Sarah Chen",
         handle: "@sarah.repairs",
-        text: "Fixify saved me so much time! The pickup service is a game changer."
+        text: "Gofex saved me so much time! The pickup service is a game changer."
     },
     {
         avatarSrc: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&q=80",
@@ -52,7 +52,7 @@ export default function LoginPage() {
             onGoogleSignIn={handleGoogleSignIn}
             onResetPassword={handleResetPassword}
             submitButtonText="Sign In"
-            footerText="New to Fixify?"
+            footerText="New to Gofex?"
             footerActionText="Create Account"
             onFooterAction={() => router.push("/signup")}
         />

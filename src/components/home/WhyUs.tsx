@@ -71,7 +71,7 @@ export function WhyUs() {
                         </div>
                         <h3 className="text-xl font-bold text-foreground dark:text-white mb-6 flex items-center gap-2">
                             <span className="p-2 bg-[#2DD4BF]/10 rounded-lg text-[#2DD4BF]"><Check className="w-5 h-5" /></span>
-                            The Fixify Experience
+                            The Gofex Experience
                         </h3>
                         <ul className="space-y-6">
                             {PRO_POINTS.map((point, i) => (

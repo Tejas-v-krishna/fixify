@@ -44,7 +44,7 @@ export default function PremiumPage() {
                             className="mb-6 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-500 text-sm font-medium mx-auto lg:mx-0"
                         >
                             <Crown className="w-4 h-4" />
-                            <span>Fixify Premium</span>
+                            <span>Gofex Premium</span>
                         </motion.div>
 
                         <motion.h1
@@ -140,7 +140,7 @@ export default function PremiumPage() {
                             </div>
 
                             <Button className="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-black font-bold h-14 rounded-xl text-lg transition-all shadow-lg shadow-amber-500/20 active:scale-[0.98]">
-                                Join Fixify Premium
+                                Join Gofex Premium
                             </Button>
 
                             <p className="mt-4 text-center text-xs text-neutral-500">

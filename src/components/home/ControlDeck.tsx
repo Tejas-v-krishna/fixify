@@ -46,7 +46,7 @@ export function ControlDeck() {
                                 <div className="h-2 w-12 bg-zinc-700 rounded-full mx-auto" />
                                 <div className="space-y-2">
                                     <div className="text-xs text-zinc-400 uppercase tracking-wider">Status</div>
-                                    <div className="text-white font-bold text-lg">Fixify Pilot Approaching</div>
+                                    <div className="text-white font-bold text-lg">Gofex Pilot Approaching</div>
                                     <div className="text-sm text-[#2DD4BF] flex items-center gap-2">
                                         <MapPin size={14} /> Arriving in 4 mins
                                     </div>
@@ -96,7 +96,7 @@ export function ControlDeck() {
                                 {
                                     icon: MapPin,
                                     title: "Live Map View",
-                                    desc: "See your \"Fixify Pilot\" approaching your location in real-time."
+                                    desc: "See your \"Gofex Pilot\" approaching your location in real-time."
                                 },
                                 {
                                     icon: MessageSquare,

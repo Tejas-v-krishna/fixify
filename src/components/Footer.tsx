@@ -13,9 +13,9 @@ export function Footer() {
                     <div className="col-span-2 lg:col-span-1 space-y-4">
                         <div className="flex items-center gap-2 mb-4">
                             <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white font-bold text-xl">
-                                F
+                                G
                             </div>
-                            <span className="font-bold text-xl text-charcoal">Fixify</span>
+                            <span className="font-bold text-xl text-charcoal">Gofex</span>
                         </div>
                         <p className="text-sm text-gray-500 leading-relaxed pr-4">
                             Smart repairs, right from your doorstep. Premium service for your premium devices.
@@ -65,7 +65,7 @@ export function Footer() {
                     <div className="col-span-2 lg:col-span-1 lg:hidden">
                         <h4 className="font-bold text-gray-900 mb-6">Reach Us</h4>
                         <ul className="space-y-3">
-                            <li className="text-sm text-gray-500">support@fixify.com</li>
+                            <li className="text-sm text-gray-500">support@gofex.com</li>
                             <li className="text-sm text-gray-500">+1 (555) 123-4567</li>
                         </ul>
                     </div>
@@ -73,7 +73,7 @@ export function Footer() {
                 </div>
 
                 <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p className="text-xs text-gray-400">© 2024 Fixify Inc. All rights reserved.</p>
+                    <p className="text-xs text-gray-400">© 2024 Gofex Inc. All rights reserved.</p>
                     <div className="flex gap-6">
                         <Link href="/privacy" className="text-xs text-gray-400 hover:text-primary transition-colors">Privacy Policy</Link>
                         <Link href="/terms" className="text-xs text-gray-400 hover:text-primary transition-colors">Terms of Service</Link>

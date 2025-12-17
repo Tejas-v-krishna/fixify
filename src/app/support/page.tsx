@@ -112,7 +112,7 @@ export default function SupportPage() {
                         </div>
                         <h3 className="text-xl font-bold mb-2 text-foreground dark:text-white">Email Support</h3>
                         <p className="text-muted-foreground mb-6">Get a response within 24 hours.</p>
-                        <button className="px-6 py-2 rounded-full border border-border dark:border-white/20 hover:bg-zinc-100 dark:hover:bg-white/5 transition-colors text-foreground dark:text-white">support@fixify.com</button>
+                        <button className="px-6 py-2 rounded-full border border-border dark:border-white/20 hover:bg-zinc-100 dark:hover:bg-white/5 transition-colors text-foreground dark:text-white">support@gofex.com</button>
                     </div>
                 </div>
             </div>

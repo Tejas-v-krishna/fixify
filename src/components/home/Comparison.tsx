@@ -14,7 +14,7 @@ export function Comparison() {
         <section className="py-24 bg-[#00171F]">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 className="text-3xl md:text-5xl font-bold text-center text-white mb-16">
-                    The <span className="text-[#00A8E8]">Fixify Standard.</span>
+                    The <span className="text-[#00A8E8]">Gofex Standard.</span>
                 </h2>
 
                 <div className="max-w-4xl mx-auto border border-white/10 rounded-3xl overflow-hidden">
@@ -22,7 +22,7 @@ export function Comparison() {
                     <div className="grid grid-cols-3 bg-white/5 p-6 border-b border-white/10">
                         <div className="text-gray-400 font-medium">Feature</div>
                         <div className="text-gray-400 font-medium text-center">Local Repair Shop</div>
-                        <div className="text-[#00A8E8] font-bold text-center">Fixify Labs</div>
+                        <div className="text-[#00A8E8] font-bold text-center">Gofex Labs</div>
                     </div>
 
                     {/* Rows */}

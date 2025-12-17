@@ -22,10 +22,10 @@ export function Membership() {
                             viewport={{ once: true }}
                         >
                             <span className="inline-block py-1 px-3 rounded-full bg-indigo-500/10 text-indigo-400 text-sm font-semibold tracking-wide mb-6 border border-indigo-500/20">
-                                FIXIFY+ MEMBER
+                                GOFEX+ MEMBER
                             </span>
                             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                                Join Fixify+. <br />
+                                Join Gofex+. <br />
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-[#2DD4BF]">The OS for your household.</span>
                             </h2>
                             <p className="text-xl text-[#A0A0C0] mb-10 max-w-lg">
@@ -51,7 +51,7 @@ export function Membership() {
                             </div>
 
                             <Button className="h-14 px-8 text-lg rounded-full bg-white text-black hover:bg-gray-200 font-bold transition-all transform hover:scale-105">
-                                Get Fixify+ Black Card
+                                Get Gofex+ Black Card
                             </Button>
                         </motion.div>
                     </div>
@@ -77,7 +77,7 @@ export function Membership() {
 
                             <div className="flex justify-between items-start z-10">
                                 <Crown className="text-[#2DD4BF] w-8 h-8" />
-                                <div className="text-indigo-400 font-mono tracking-widest text-sm">FIXIFY+</div>
+                                <div className="text-indigo-400 font-mono tracking-widest text-sm">GOFEX+</div>
                             </div>
 
                             <div className="z-10 space-y-2">

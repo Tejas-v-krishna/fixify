@@ -45,7 +45,7 @@ export function HoverBorderGradient({
     };
 
     const highlight =
-        "radial-gradient(75% 181.15942028985506% at 50% 50%, #00a8e8 0%, rgba(255, 255, 255, 0) 100%)"; // Updated to Fixify Cyan
+        "radial-gradient(75% 181.15942028985506% at 50% 50%, #00a8e8 0%, rgba(255, 255, 255, 0) 100%)"; // Updated to Gofex Cyan
 
     useEffect(() => {
         if (!hovered) {

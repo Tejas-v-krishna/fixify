@@ -8,7 +8,7 @@ export default function FAQsPage() {
     const faqs = [
         {
             q: "Is my item insured?",
-            a: "Yes, every item picked up by Fixify is insured against damage or loss during transit and repair. We value your trust and safety."
+            a: "Yes, every item picked up by Gofex is insured against damage or loss during transit and repair. We value your trust and safety."
         },
         {
             q: "How long does repair take?",

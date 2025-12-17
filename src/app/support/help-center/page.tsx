@@ -49,7 +49,7 @@ export default function HelpCenterPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <Card className="p-8 bg-blue-50 border-blue-100 flex items-center justify-between" hoverEffect={false}>
                         <div>
-                            <h3 className="text-xl font-bold text-blue-900 mb-2">New to Fixify?</h3>
+                            <h3 className="text-xl font-bold text-blue-900 mb-2">New to Gofex?</h3>
                             <p className="text-blue-700 mb-4">Learn the basics of how our platform works.</p>
                             <Link href="/how-it-works">
                                 <Button variant="outline" className="border-blue-200 text-blue-700 hover:bg-blue-100">Read Guide</Button>

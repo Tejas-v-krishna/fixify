@@ -30,7 +30,7 @@ export default function ContactPage() {
                             </div>
                             <div>
                                 <h3 className="font-semibold text-lg text-foreground dark:text-white">Email Support</h3>
-                                <p className="text-muted-foreground">support@fixify.com</p>
+                                <p className="text-muted-foreground">support@gofex.com</p>
                             </div>
                         </Card>
                         <Card className="p-6 flex items-center gap-4 hover:bg-zinc-100 dark:hover:bg-white/10 transition-colors cursor-pointer border-border dark:border-white/10 bg-card dark:bg-white/5 backdrop-blur-md shadow-sm dark:shadow-none" hoverEffect={false}>

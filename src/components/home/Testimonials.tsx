@@ -19,7 +19,7 @@ export function Testimonials() {
                 <div className="grid md:grid-cols-3 gap-8">
                     {[
                         {
-                            quote: "I dropped my iPad two days before a client pitch. Fixify picked it up within 20 mins and returned it the same evening. Absolute lifesaver.",
+                            quote: "I dropped my iPad two days before a client pitch. Gofex picked it up within 20 mins and returned it the same evening. Absolute lifesaver.",
                             author: "Arjun M.",
                             role: "Architect",
                             tag: "The Professional"

@@ -52,7 +52,7 @@ export function Business() {
 
                             <div>
                                 <Button className="bg-indigo-500 hover:bg-indigo-600 text-white border-0 px-8 py-6 text-lg rounded-full shadow-lg shadow-indigo-500/30">
-                                    Partner with Fixify
+                                    Partner with Gofex
                                 </Button>
                             </div>
                         </div>

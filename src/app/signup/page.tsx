@@ -30,7 +30,7 @@ export default function SignupPage() {
 
     const handleSignUp = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        toast.success("Account created!", { description: "Welcome to Fixify." });
+        toast.success("Account created!", { description: "Welcome to Gofex." });
         setTimeout(() => router.push("/"), 1500);
     };
 
@@ -40,7 +40,7 @@ export default function SignupPage() {
 
     return (
         <AuthPage
-            title={<span className="font-light text-foreground tracking-tighter">Join Fixify</span>}
+            title={<span className="font-light text-foreground tracking-tighter">Join Gofex</span>}
             description="Start your hassle-free repair journey today."
             heroImageSrc="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2069&auto=format&fit=crop"
             testimonials={testimonials}
