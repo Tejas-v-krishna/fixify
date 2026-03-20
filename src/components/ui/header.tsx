@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/Button"
-import { HoverBorderGradient } from "@/components/ui/hover-border-gradient"
 import { AnimatedBackground } from "@/components/core/animated-background"
 import { PremiumToggle } from "@/components/ui/bouncy-toggle"
 import { useTheme } from "next-themes"
@@ -155,7 +154,7 @@ export function Header1() {
 
                     {/* --- Logo --- */}
                     <div className="relative z-10 flex items-center gap-2 mr-4">
-                        <Link href="/" className="flex items-center gap-2 group" onClick={() => toast("Back to Home")}>
+                        <Link href="/" className="flex items-center gap-2 group" onClick={() => toast("Back to Home")} aria-label="Gofex Home">
                             <div className={cn("relative flex items-center justify-center w-8 h-8 rounded-full transition-colors", logoBg)}>
                                 <svg className={cn("w-4 h-4 transition-colors", logoIcon)} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -218,6 +217,7 @@ export function Header1() {
                         <button
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                             className={cn("md:hidden p-2 rounded-full transition-colors", isLightMode ? "text-[#1E1B4B] hover:bg-black/5" : "text-white hover:bg-white/10")}
+                            aria-label="Toggle Menu"
                         >
                             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
                         </button>

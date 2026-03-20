@@ -1,27 +1,22 @@
 
 "use client";
 
-import { createClient } from "@/utils/supabase/client";
 import { Button } from "@/components/ui/Button";
 import { LogOut } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
+import { signOut } from "@/app/actions/auth";
 
 export function SignOutButton() {
     const router = useRouter();
 
     const handleSignOut = async () => {
-        const supabase = createClient();
-        const { error } = await supabase.auth.signOut();
-
-        if (error) {
-            toast.error("Error signing out");
-            return;
+        try {
+            await signOut();
+            toast.success("Signed out successfully");
+        } catch (error: any) {
+            toast.error(error.message || "Failed to sign out");
         }
-
-        toast.success("Signed out successfully");
-        router.refresh(); // Refresh server components
-        router.push("/login");
     };
 
     return (

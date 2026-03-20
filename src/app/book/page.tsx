@@ -9,14 +9,29 @@ import { ArrowLeft, ArrowRight, Calendar, Clock, MapPin, Package, ShieldCheck } 
 import Link from "next/link";
 import { useState, Suspense } from "react";
 import { motion } from "framer-motion";
+import { createBooking } from "@/app/actions/booking";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 import { useSearchParams } from "next/navigation";
 
 function BookingContent() {
     const [step, setStep] = useState(1);
     const searchParams = useSearchParams();
+    const router = useRouter();
     const category = searchParams.get("category");
     const categoryLabel = category ? category.charAt(0).toUpperCase() + category.slice(1) : "";
+
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        const formData = new FormData(event.currentTarget);
+        try {
+            await createBooking(formData);
+            toast.success("Booking created successfully!");
+        } catch (error: any) {
+            toast.error(error.message || "Failed to create booking");
+        }
+    };
 
     return (
         <div className="min-h-screen bg-background pt-24 pb-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden transition-colors duration-500">
@@ -36,7 +51,7 @@ function BookingContent() {
                     <p className="text-muted-foreground mt-1">Tell us what needs fixing, and we'll handle the rest.</p>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     {/* Left Column: Form */}
                     <div className="lg:col-span-2 space-y-6">
 
@@ -49,10 +64,10 @@ function BookingContent() {
 
                             <div className="space-y-4">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <Input label="Category" placeholder="Select Category (e.g. Electronics)" defaultValue={categoryLabel} className="bg-white dark:bg-[#0F0E17]/50 border-input dark:border-white/10 text-foreground dark:text-white placeholder:text-muted-foreground focus:border-[#2DD4BF] focus:ring-[#2DD4BF]/20" />
-                                    <Input label="Item Name" placeholder="e.g. iPhone 13 Pro" className="bg-white dark:bg-[#0F0E17]/50 border-input dark:border-white/10 text-foreground dark:text-white placeholder:text-muted-foreground focus:border-[#2DD4BF] focus:ring-[#2DD4BF]/20" />
+                                    <Input name="category" label="Category" placeholder="Select Category (e.g. Electronics)" defaultValue={categoryLabel} className="bg-white dark:bg-[#0F0E17]/50 border-input dark:border-white/10 text-foreground dark:text-white placeholder:text-muted-foreground focus:border-[#2DD4BF] focus:ring-[#2DD4BF]/20" />
+                                    <Input name="itemName" label="Item Name" placeholder="e.g. iPhone 13 Pro" className="bg-white dark:bg-[#0F0E17]/50 border-input dark:border-white/10 text-foreground dark:text-white placeholder:text-muted-foreground focus:border-[#2DD4BF] focus:ring-[#2DD4BF]/20" />
                                 </div>
-                                <Textarea label="Problem Description" placeholder="Describe the issue... (e.g. Screen cracked, battery draining fast)" className="bg-white dark:bg-[#0F0E17]/50 border-input dark:border-white/10 text-foreground dark:text-white placeholder:text-muted-foreground focus:border-[#2DD4BF] focus:ring-[#2DD4BF]/20" />
+                                <Textarea name="description" label="Problem Description" placeholder="Describe the issue... (e.g. Screen cracked, battery draining fast)" className="bg-white dark:bg-[#0F0E17]/50 border-input dark:border-white/10 text-foreground dark:text-white placeholder:text-muted-foreground focus:border-[#2DD4BF] focus:ring-[#2DD4BF]/20" />
                                 <FileUpload label="Upload Photo (Optional)" />
                             </div>
                         </Card>
@@ -64,10 +79,10 @@ function BookingContent() {
                                 <h2 className="text-xl font-semibold text-foreground">Pickup Location</h2>
                             </div>
                             <div className="space-y-4">
-                                <Input label="Street Address" placeholder="123 Main St" className="bg-white dark:bg-[#0F0E17]/50 border-input dark:border-white/10 text-foreground dark:text-white placeholder:text-muted-foreground focus:border-[#2DD4BF] focus:ring-[#2DD4BF]/20" />
+                                <Input name="address" label="Street Address" placeholder="123 Main St" className="bg-white dark:bg-[#0F0E17]/50 border-input dark:border-white/10 text-foreground dark:text-white placeholder:text-muted-foreground focus:border-[#2DD4BF] focus:ring-[#2DD4BF]/20" />
                                 <div className="grid grid-cols-2 gap-4">
-                                    <Input label="City" placeholder="New York" className="bg-white dark:bg-[#0F0E17]/50 border-input dark:border-white/10 text-foreground dark:text-white placeholder:text-muted-foreground focus:border-[#2DD4BF] focus:ring-[#2DD4BF]/20" />
-                                    <Input label="Zip Code" placeholder="10001" className="bg-white dark:bg-[#0F0E17]/50 border-input dark:border-white/10 text-foreground dark:text-white placeholder:text-muted-foreground focus:border-[#2DD4BF] focus:ring-[#2DD4BF]/20" />
+                                    <Input name="city" label="City" placeholder="New York" className="bg-white dark:bg-[#0F0E17]/50 border-input dark:border-white/10 text-foreground dark:text-white placeholder:text-muted-foreground focus:border-[#2DD4BF] focus:ring-[#2DD4BF]/20" />
+                                    <Input name="zipCode" label="Zip Code" placeholder="10001" className="bg-white dark:bg-[#0F0E17]/50 border-input dark:border-white/10 text-foreground dark:text-white placeholder:text-muted-foreground focus:border-[#2DD4BF] focus:ring-[#2DD4BF]/20" />
                                 </div>
                             </div>
                         </Card>
@@ -79,10 +94,10 @@ function BookingContent() {
                                 <h2 className="text-xl font-semibold text-foreground">Preferred Time</h2>
                             </div>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <Input label="Date" type="date" className="bg-white dark:bg-[#0F0E17]/50 border-input dark:border-white/10 text-foreground dark:text-white focus:border-[#2DD4BF] focus:ring-[#2DD4BF]/20 [color-scheme:light] dark:[color-scheme:dark]" />
+                                <Input name="date" label="Date" type="date" className="bg-white dark:bg-[#0F0E17]/50 border-input dark:border-white/10 text-foreground dark:text-white focus:border-[#2DD4BF] focus:ring-[#2DD4BF]/20 [color-scheme:light] dark:[color-scheme:dark]" />
                                 <div className="space-y-1">
                                     <label className="text-sm font-medium text-muted-foreground">Time Slot</label>
-                                    <select className="w-full h-11 px-4 rounded-xl border border-input dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-[#2DD4BF]/20 focus:border-[#2DD4BF] transition-all bg-white dark:bg-[#0F0E17]/50 text-foreground dark:text-white">
+                                    <select name="timeSlot" className="w-full h-11 px-4 rounded-xl border border-input dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-[#2DD4BF]/20 focus:border-[#2DD4BF] transition-all bg-white dark:bg-[#0F0E17]/50 text-foreground dark:text-white">
                                         <option>Morning (9 AM - 12 PM)</option>
                                         <option>Afternoon (12 PM - 4 PM)</option>
                                         <option>Evening (4 PM - 8 PM)</option>
@@ -112,7 +127,7 @@ function BookingContent() {
                                 </div>
                                 <p className="text-xs text-white/40 mb-6">*Final price depends on parts needed.</p>
 
-                                <Button className="w-full bg-[#2DD4BF] hover:bg-[#2DD4BF]/90 text-[#0F0E17] rounded-full h-12 text-base font-bold shadow-[0_0_20px_rgba(45,212,191,0.3)] transition-all">
+                                <Button type="submit" className="w-full bg-[#2DD4BF] hover:bg-[#2DD4BF]/90 text-[#0F0E17] rounded-full h-12 text-base font-bold shadow-[0_0_20px_rgba(45,212,191,0.3)] transition-all">
                                     Confirm Pickup
                                     <ArrowRight className="ml-2 w-4 h-4" />
                                 </Button>
@@ -137,7 +152,7 @@ function BookingContent() {
                             </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     );

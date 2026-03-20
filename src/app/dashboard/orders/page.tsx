@@ -1,25 +1,20 @@
 
-import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
-import { Package, Clock, CheckCircle2, AlertCircle, ArrowLeft } from "lucide-react";
+import { Package, ArrowLeft } from "lucide-react";
 
 export default async function OrdersPage() {
-    const supabase = await createClient();
-    const { data: { user } } = await supabase.auth.getUser();
+    // TODO: Replace with your new authentication session check
+    const user = null; // placeholder until new auth is connected
 
     if (!user) {
         redirect("/login");
     }
 
-    // In a real app, we would fetch orders here:
-    // const { data: orders } = await supabase.from('orders').select('*').eq('user_id', user.id);
-
-    // For now, we'll use an empty state or mock data if requested. 
-    // Since the DB is fresh, it's likely empty.
-    const orders: any[] = [];
+    // TODO: Fetch orders from your new database
+    const orders: unknown[] = [];
 
     return (
         <div className="min-h-screen bg-background pt-24 pb-12 px-4 sm:px-6 lg:px-8">
@@ -43,7 +38,7 @@ export default async function OrdersPage() {
                         </div>
                         <h2 className="text-xl font-bold text-foreground mb-2">No orders found</h2>
                         <p className="text-muted-foreground mb-8 max-w-md mx-auto">
-                            You haven't booked any repairs yet. Once you do, they will appear here with real-time tracking updates.
+                            You haven&apos;t booked any repairs yet. Once you do, they will appear here with real-time tracking updates.
                         </p>
                         <Link href="/book">
                             <Button className="bg-[#2DD4BF] text-zinc-950 hover:bg-[#2DD4BF]/90 font-bold px-8">
@@ -53,8 +48,7 @@ export default async function OrdersPage() {
                     </Card>
                 ) : (
                     <div className="space-y-4">
-                        {/* Placeholder for order list implementation */}
-                        <p>Order list content would go here.</p>
+                        {/* TODO: Render orders from new database */}
                     </div>
                 )}
             </div>

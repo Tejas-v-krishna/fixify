@@ -4,12 +4,7 @@ import { Button } from "@/components/ui/Button";
 import { Check, Crown, Diamond, Shield, Zap, ArrowLeft, Star } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Navbar } from "@/components/Navbar"; // Assuming there might be a Navbar component, but usually Layout handles it. 
-// Actually, layout.tsx likely includes Header throughout. I might want to hide the default header? 
-// The user said "a new page to be created". Usually app router layouts persist. 
-// If they want a distinctive page, maybe I should hide the default header or just let it be. 
-// For "way more premium", a custom header or no header (just back button) might be better.
-// But keeping global nav is usually safer for UX. I'll stick to standard layout integration for now.
+
 
 const features = [
     { icon: Zap, label: "Priority Pickup & Delivery", text: "Skip the queue. We'll be there in under 60 mins." },

@@ -1,28 +1,20 @@
 
-import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
-import { ArrowRight, Wrench, Package, Clock, ShieldCheck, LogOut } from "lucide-react";
+import { ArrowRight, Wrench, Package, Clock, ShieldCheck } from "lucide-react";
 import { SignOutButton } from "@/components/dashboard/SignOutButton";
+import { getUser } from "@/app/actions/auth";
 
 export default async function DashboardPage() {
-    const supabase = await createClient();
-    const { data: { user } } = await supabase.auth.getUser();
+    const user = await getUser();
 
     if (!user) {
         redirect("/login");
     }
 
-    // Get user profile if available (or use metadata)
-    const { data: profile } = await supabase
-        .from('profiles')
-        .select('*')
-        .eq('id', user.id)
-        .single();
-
-    const displayName = profile?.full_name || user.user_metadata?.full_name || "User";
+    const displayName = user.fullName || user.email?.split('@')[0] || "User";
 
     const repairSteps = [
         {

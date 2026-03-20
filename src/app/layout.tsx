@@ -13,8 +13,32 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Gofex - Premium Request & Pickup",
-  description: "Doorstep pickup and delivery for all your repair needs.",
+  title: "Gofex - Premium Doorstep Repair & Pickup Service",
+  description: "Doorstep pickup and delivery for all your repair needs. From electronics to footwear, we fix it all with expert care and real-time tracking.",
+  keywords: ["repair service", "doorstep pickup", "electronics repair", "sneaker cleaning", "appliance repair", "Gofex"],
+  authors: [{ name: "Gofex Team" }],
+  openGraph: {
+    title: "Gofex - Premium Doorstep Repair & Pickup Service",
+    description: "Doorstep pickup and delivery for all your repair needs.",
+    url: "https://gofex.com",
+    siteName: "Gofex",
+    images: [
+      {
+        url: "/fixify-preview.png",
+        width: 1200,
+        height: 630,
+        alt: "Gofex Service Preview",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Gofex - Premium Doorstep Repair & Pickup Service",
+    description: "Doorstep pickup and delivery for all your repair needs.",
+    images: ["/fixify-preview.png"],
+  },
 };
 
 export default function RootLayout({

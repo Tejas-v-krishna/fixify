@@ -1,9 +1,9 @@
 "use client";
 
-import { createClient } from "@/utils/supabase/client";
 import { AuthPage, Testimonial } from "@/components/ui/sign-in";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import { signup } from "@/app/actions/auth";
 
 const testimonials: Testimonial[] = [
     {
@@ -32,40 +32,16 @@ export default function SignupPage() {
     const handleSignUp = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const formData = new FormData(event.currentTarget);
-        const email = formData.get("email") as string;
-        const password = formData.get("password") as string;
-
-        const supabase = createClient();
-
-        const { error } = await supabase.auth.signUp({
-            email,
-            password,
-            options: {
-                emailRedirectTo: `${location.origin}/auth/callback`,
-            },
-        });
-
-        if (error) {
-            toast.error("Signup failed", { description: error.message });
-            return;
+        try {
+            await signup(formData);
+            toast.success("Account created successfully!");
+        } catch (error: any) {
+            toast.error(error.message || "Failed to sign up");
         }
-
-        toast.success("Account created!", { description: "Check your email to confirm." });
-        // Optionally redirect or show a "Check your email" state
     };
 
     const handleGoogleSignIn = async () => {
-        const supabase = createClient();
-        const { error } = await supabase.auth.signInWithOAuth({
-            provider: 'google',
-            options: {
-                redirectTo: `${location.origin}/auth/callback`,
-            },
-        });
-
-        if (error) {
-            toast.error("Google Sign-Up failed", { description: error.message });
-        }
+        toast("Google Sign-Up", { description: "Authentication system not yet connected." });
     };
 
     return (
