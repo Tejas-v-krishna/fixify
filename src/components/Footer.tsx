@@ -1,83 +1,77 @@
 "use client";
 
-import Link from 'next/link';
-import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
-import { toast } from 'sonner';
+import Link from "next/link";
+import { Facebook, Twitter, Instagram, Youtube } from "lucide-react";
 
 export function Footer() {
     return (
-        <footer className="bg-white border-t border-gray-100 pt-20 pb-10">
+        <footer className="bg-white pt-24 pb-12 border-t border-zinc-100">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10 mb-16">
-                    {/* Brand Column */}
-                    <div className="col-span-2 lg:col-span-1 space-y-4">
-                        <div className="flex items-center gap-2 mb-4">
-                            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white font-bold text-xl">
-                                G
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                    {/* Brand Section */}
+                    <div className="col-span-1 lg:col-span-1">
+                        <Link href="/" className="flex items-center gap-2 mb-6">
+                            <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center">
+                                <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                </svg>
                             </div>
-                            <span className="font-bold text-xl text-charcoal">Gofex</span>
-                        </div>
-                        <p className="text-sm text-gray-500 leading-relaxed pr-4">
-                            Smart repairs, right from your doorstep. Premium service for your premium devices.
+                            <span className="text-xl font-bold tracking-tight text-zinc-900 uppercase">Mr. Appliance</span>
+                        </Link>
+                        <p className="text-zinc-500 text-sm mb-6 leading-relaxed max-w-xs">
+                            Expert appliance repair services for your home. We&apos;re proud to be part of the Neighborly family.
                         </p>
-                        <div className="flex gap-4 pt-2">
-                            <a href="#" className="text-gray-400 hover:text-primary transition-colors"><Facebook size={18} /></a>
-                            <a href="#" className="text-gray-400 hover:text-primary transition-colors"><Twitter size={18} /></a>
-                            <a href="#" className="text-gray-400 hover:text-primary transition-colors"><Instagram size={18} /></a>
-                            <a href="#" className="text-gray-400 hover:text-primary transition-colors"><Linkedin size={18} /></a>
+                        <div className="flex items-center gap-4">
+                            <Link href="#" className="w-10 h-10 rounded-full border border-zinc-200 flex items-center justify-center text-zinc-400 hover:text-blue-600 hover:border-blue-600 transition-all">
+                                <Facebook className="w-5 h-5" />
+                            </Link>
+                            <Link href="#" className="w-10 h-10 rounded-full border border-zinc-200 flex items-center justify-center text-zinc-400 hover:text-blue-400 hover:border-blue-400 transition-all">
+                                <Twitter className="w-5 h-5" />
+                            </Link>
+                            <Link href="#" className="w-10 h-10 rounded-full border border-zinc-200 flex items-center justify-center text-zinc-400 hover:text-pink-600 hover:border-pink-600 transition-all">
+                                <Instagram className="w-5 h-5" />
+                            </Link>
+                            <Link href="#" className="w-10 h-10 rounded-full border border-zinc-200 flex items-center justify-center text-zinc-400 hover:text-red-600 hover:border-red-600 transition-all">
+                                <Youtube className="w-5 h-5" />
+                            </Link>
                         </div>
                     </div>
 
-                    {/* Column 1: Product */}
+                    {/* Links Sections */}
                     <div>
-                        <h4 className="font-bold text-gray-900 mb-6">Product</h4>
+                        <h4 className="font-bold text-zinc-900 mb-6">Company</h4>
                         <ul className="space-y-4">
-                            <li><Link href="/services" className="text-sm text-gray-500 hover:text-primary transition-colors">Services</Link></li>
-                            <li><Link href="/how-it-works" className="text-sm text-gray-500 hover:text-primary transition-colors">How It Works</Link></li>
-                            <li><Link href="/pricing" className="text-sm text-gray-500 hover:text-primary transition-colors">Pricing</Link></li>
-                            <li><Link href="/track" className="text-sm text-gray-500 hover:text-primary transition-colors">Track Repair</Link></li>
+                            <li><Link href="#" className="text-zinc-500 hover:text-blue-600 transition-colors">The Neighborly App</Link></li>
+                            <li><Link href="#" className="text-zinc-500 hover:text-blue-600 transition-colors">Why Us</Link></li>
+                            <li><Link href="#" className="text-zinc-500 hover:text-blue-600 transition-colors">About Us</Link></li>
+                            <li><Link href="#" className="text-zinc-500 hover:text-blue-600 transition-colors">Contact Us</Link></li>
                         </ul>
                     </div>
 
-                    {/* Column 2: Company */}
                     <div>
-                        <h4 className="font-bold text-gray-900 mb-6">Company</h4>
+                        <h4 className="font-bold text-zinc-900 mb-6">Services</h4>
                         <ul className="space-y-4">
-                            <li><Link href="/about" className="text-sm text-gray-500 hover:text-primary transition-colors">About</Link></li>
-                            <li><Link href="/careers" className="text-sm text-gray-500 hover:text-primary transition-colors">Careers</Link></li>
-                            <li><Link href="/contact" className="text-sm text-gray-500 hover:text-primary transition-colors">Contact</Link></li>
-                            <li><Link href="/partners" className="text-sm text-gray-500 hover:text-primary transition-colors">Partners</Link></li>
+                            <li><Link href="#" className="text-zinc-500 hover:text-blue-600 transition-colors">Residential</Link></li>
+                            <li><Link href="#" className="text-zinc-500 hover:text-blue-600 transition-colors">Commercial</Link></li>
+                            <li><Link href="#" className="text-zinc-500 hover:text-blue-600 transition-colors">Appliances</Link></li>
+                            <li><Link href="#" className="text-zinc-500 hover:text-blue-600 transition-colors">Repairs</Link></li>
                         </ul>
                     </div>
 
-                    {/* Column 3: Support */}
                     <div>
-                        <h4 className="font-bold text-gray-900 mb-6">Support</h4>
+                        <h4 className="font-bold text-zinc-900 mb-6">Resources</h4>
                         <ul className="space-y-4">
-                            <li><Link href="/help" className="text-sm text-gray-500 hover:text-primary transition-colors">Help Center</Link></li>
-                            <li><Link href="/faqs" className="text-sm text-gray-500 hover:text-primary transition-colors">FAQs</Link></li>
-                            <li><Link href="/terms" className="text-sm text-gray-500 hover:text-primary transition-colors">Terms & Privacy</Link></li>
-                            <li><Link href="/community" className="text-sm text-gray-500 hover:text-primary transition-colors">Community</Link></li>
+                            <li><Link href="#" className="text-zinc-500 hover:text-blue-600 transition-colors">Quick Tips</Link></li>
+                            <li><Link href="#" className="text-zinc-500 hover:text-blue-600 transition-colors">Updates</Link></li>
+                            <li><Link href="#" className="text-zinc-500 hover:text-blue-600 transition-colors">Sitemap</Link></li>
                         </ul>
                     </div>
-
-                    {/* Column 4: Reach Us (Merged into simple text in original layout, but explicit here) */}
-                    <div className="col-span-2 lg:col-span-1 lg:hidden">
-                        <h4 className="font-bold text-gray-900 mb-6">Reach Us</h4>
-                        <ul className="space-y-3">
-                            <li className="text-sm text-gray-500">support@gofex.com</li>
-                            <li className="text-sm text-gray-500">+1 (555) 123-4567</li>
-                        </ul>
-                    </div>
-
                 </div>
 
-                <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p className="text-xs text-gray-400">© 2024 Gofex Inc. All rights reserved.</p>
-                    <div className="flex gap-6">
-                        <Link href="/privacy" className="text-xs text-gray-400 hover:text-primary transition-colors">Privacy Policy</Link>
-                        <Link href="/terms" className="text-xs text-gray-400 hover:text-primary transition-colors">Terms of Service</Link>
-                        <Link href="/cookies" className="text-xs text-gray-400 hover:text-primary transition-colors">Cookie Settings</Link>
+                <div className="pt-8 border-t border-zinc-100 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-zinc-400">
+                    <p>© 2026 Mr. Appliance. All rights reserved.</p>
+                    <div className="flex gap-8">
+                        <Link href="#" className="hover:text-zinc-900 transition-colors">Privacy Policy</Link>
                     </div>
                 </div>
             </div>

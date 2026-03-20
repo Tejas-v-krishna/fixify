@@ -1,35 +1,23 @@
 import { Hero } from "@/components/home/Hero";
-import { Brands } from "@/components/home/Brands";
-import { Services } from "@/components/home/Services"; // The Labs
-import { QualityPromise } from "@/components/home/QualityPromise";
-import { Sustainability } from "@/components/home/Sustainability";
-import { BeforeAfter } from "@/components/home/BeforeAfter";
-import { Membership } from "@/components/home/Membership";
-import { Hygiene } from "@/components/home/Hygiene";
-import { ControlDeck } from "@/components/home/ControlDeck";
-import { Business } from "@/components/home/Business";
-import { SmartSearch } from "@/components/home/SmartSearch";
-import { Testimonials } from "@/components/home/Testimonials";
+import { CommonProblems } from "@/components/home/CommonProblems";
+import { MajorAppliances } from "@/components/home/MajorAppliances";
+import { FindNearMe } from "@/components/home/FindNearMe";
+import { WhyChooseUs } from "@/components/home/WhyChooseUs";
+import { Resources } from "@/components/home/Resources";
 import { FAQ } from "@/components/home/FAQ";
-import { CallToAction } from "@/components/home/CallToAction";
+import { NeighborlySection } from "@/components/home/NeighborlySection";
 
 export default function Home() {
   return (
-    <>
+    <div className="bg-white">
       <Hero />
-      <Brands />
-      <Services />
-      <QualityPromise />
-      <Sustainability />
-      <BeforeAfter />
-      <Membership />
-      <Hygiene />
-      <ControlDeck />
-      <Business />
-      <SmartSearch />
-      <Testimonials />
+      <CommonProblems />
+      <MajorAppliances />
+      <FindNearMe />
+      <WhyChooseUs />
+      <Resources />
       <FAQ />
-      <CallToAction />
-    </>
+      <NeighborlySection />
+    </div>
   );
 }
