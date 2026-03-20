@@ -1,66 +1,66 @@
 "use client";
 
-import { Quote, Star, CheckCircle } from "lucide-react";
+import { motion } from "framer-motion";
+import { Star, Quote } from "lucide-react";
+
+const testimonials = [
+  {
+    name: "Student, Bangalore",
+    content: "I didn't have to step out. Pickup, repair, delivery — everything was smooth.",
+    role: "User"
+  },
+  {
+    name: "Working Professional",
+    content: "The tracking feature gave me full confidence. Amazing experience.",
+    role: "User"
+  },
+  {
+    name: "Home Owner",
+    content: "Transparent pricing and expert technicians. Gofex is a game changer.",
+    role: "User"
+  }
+];
 
 export function Testimonials() {
-    return (
-        <section className="py-24 bg-background border-t border-border dark:border-white/5 relative overflow-hidden">
-            {/* Background Gradients */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#818CF8]/10 rounded-full blur-[120px] pointer-events-none translate-x-1/2 -translate-y-1/2" />
+  return (
+    <section className="py-24 bg-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-heading font-bold text-zinc-900 mb-4">
+            Trusted by <span className="text-blue-600">Real Users</span>
+          </h2>
+          <p className="text-zinc-500 max-w-2xl mx-auto">
+            See what our customers have to say about their repair experience with Gofex.
+          </p>
+        </div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-5xl font-bold text-foreground dark:text-white mb-4">
-                        10,000+ devices restored. <br className="hidden md:block" />
-                        <span className="text-muted-foreground dark:text-[#A0A0C0]">Here is the feedback.</span>
-                    </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {testimonials.map((testimonial, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1 }}
+              className="p-10 rounded-[40px] bg-zinc-50 border border-zinc-100 shadow-xl relative overflow-hidden group"
+            >
+              <Quote className="absolute -top-4 -left-4 w-24 h-24 text-blue-100/50 group-hover:scale-110 transition-transform duration-500" />
+              <div className="relative z-10">
+                <div className="flex text-yellow-400 mb-6">
+                  {[1, 2, 3, 4, 5].map(i => <Star key={i} className="w-4 h-4 fill-current" />)}
                 </div>
-
-                <div className="grid md:grid-cols-3 gap-8">
-                    {[
-                        {
-                            quote: "I dropped my iPad two days before a client pitch. Gofex picked it up within 20 mins and returned it the same evening. Absolute lifesaver.",
-                            author: "Arjun M.",
-                            role: "Architect",
-                            tag: "The Professional"
-                        },
-                        {
-                            quote: "The transparency is what sold me. I could see exactly when my son's console reached the lab and when the repair started. No guessing.",
-                            author: "Priya S.",
-                            role: "Homemaker",
-                            tag: "The Parent"
-                        },
-                        {
-                            quote: "I was worried about my data. The 'Repair Mode' guide they sent was very reassuring. Professional from start to finish.",
-                            author: "Rohan K.",
-                            role: "Software Engineer",
-                            tag: "The Skeptic"
-                        }
-                    ].map((item, i) => (
-                        <div key={i} className="relative p-8 rounded-3xl bg-card dark:bg-white/5 border border-border dark:border-white/10 backdrop-blur-sm flex flex-col h-full hover:border-[#2DD4BF]/30 transition-all">
-                            <Quote className="absolute top-8 right-8 w-10 h-10 text-primary/10 dark:text-white/5 rotate-180" />
-
-                            <div className="flex items-center gap-1 mb-6">
-                                {[1, 2, 3, 4, 5].map((s) => (
-                                    <Star key={s} className="w-4 h-4 fill-[#2DD4BF] text-[#2DD4BF]" />
-                                ))}
-                            </div>
-
-                            <p className="text-lg text-foreground dark:text-gray-200 leading-relaxed mb-8 flex-grow">
-                                "{item.quote}"
-                            </p>
-
-                            <div className="mt-auto">
-                                <div className="flex items-center gap-3 mb-1">
-                                    <div className="font-bold text-foreground dark:text-white text-lg">{item.author}</div>
-                                    <CheckCircle className="w-4 h-4 text-[#2DD4BF]" />
-                                </div>
-                                <div className="text-sm text-muted-foreground dark:text-[#A0A0C0]">{item.role}</div>
-                            </div>
-                        </div>
-                    ))}
+                <p className="text-lg text-zinc-900 font-medium italic mb-8 leading-relaxed">
+                  "{testimonial.content}"
+                </p>
+                <div>
+                  <h4 className="font-bold text-zinc-900">{testimonial.name}</h4>
+                  <p className="text-sm text-zinc-500">{testimonial.role}</p>
                 </div>
-            </div>
-        </section>
-    );
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }

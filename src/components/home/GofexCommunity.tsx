@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Apple, PlayCircle } from "lucide-react";
 import { Button } from "../ui/Button";
 
-export function NeighborlySection() {
+export function GofexCommunity() {
   return (
     <section className="py-24 bg-zinc-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -16,14 +16,14 @@ export function NeighborlySection() {
         >
           <div className="max-w-xl">
             <h2 className="text-4xl font-heading font-bold text-zinc-900 mb-6 leading-tight">
-              Mr. Appliance, part of <br />
-              Neighborly family
+              Gofex, your trusted <br />
+              repair partner
             </h2>
             <p className="text-zinc-500 mb-10">
-              Mr. Appliance is proud to be part of Neighborly, a community of home service experts we trust.
+              Gofex is proud to provide premium repair services you can trust. We're dedicated to quality and reliability in every repair.
             </p>
             <div className="flex flex-wrap gap-8 grayscale opacity-50">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Neighborly_logo.svg/1200px-Neighborly_logo.svg.png" alt="Neighborly" className="h-8" />
+              <span className="text-2xl font-bold text-zinc-300 uppercase tracking-widest">GOFEX COMMUNITY</span>
             </div>
           </div>
 
@@ -46,9 +46,9 @@ export function NeighborlySection() {
               </Button>
             </div>
             <div className="pt-8 border-t border-zinc-200 text-center">
-              <p className="text-sm text-zinc-500 mb-4">Neighborly is all you need for home services.</p>
+              <p className="text-sm text-zinc-500 mb-4">Gofex is all you need for doorstep repairs.</p>
               <Button variant="outline" className="rounded-full border-zinc-900 hover:bg-zinc-950 hover:text-white transition-colors">
-                Discover Neighborly
+                Discover Gofex
               </Button>
             </div>
           </div>

@@ -6,28 +6,27 @@ import { Button } from "../ui/Button";
 
 const appliances = [
   {
-    title: "Washing Machine Repair",
-    desc: "Schedule our washing machine repair service to find the fault.",
+    title: "Electronics",
+    desc: "Phones, Laptops, Devices and all your smart gadgets.",
+    image: "https://images.unsplash.com/photo-1588508065123-287b28e013da?q=80&w=2070&auto=format&fit=crop",
+    size: "col-span-1"
+  },
+  {
+    title: "Home Appliances",
+    desc: "AC, Washing Machine, Fridge and all household essentials.",
     image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2070&auto=format&fit=crop",
     size: "col-span-1"
   },
   {
-    title: "Refrigerator Repair",
-    desc: "Expert refrigerator repair service to restore perfect cooling.",
-    image: "https://images.unsplash.com/photo-1571175484209-514214fe4e3e?q=80&w=2070&auto=format&fit=crop",
+    title: "Furniture & Household Items",
+    desc: "Restoration and repair for your home's most used items.",
+    image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=2070&auto=format&fit=crop",
     size: "col-span-1"
   },
   {
-    title: "Dishwasher Repair",
-    desc: "Fast and reliable dishwasher repair expert performance.",
-    image: "https://images.unsplash.com/photo-1590601397293-58203e395cc9?q=80&w=2070&auto=format&fit=crop",
-    size: "col-span-1",
-    cta: "View All Services"
-  },
-  {
-    title: "Commercial Services",
-    desc: "Expert commercial appliance repair for kitchen and laundry.",
-    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=2070&auto=format&fit=crop",
+    title: "Shoes, Bags & Accessories",
+    desc: "Premium cleaning and repair for your favorite wear.",
+    image: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=1974&auto=format&fit=crop",
     size: "col-span-1"
   }
 ];
@@ -38,10 +37,10 @@ export function MajorAppliances() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-heading font-bold text-zinc-900 mb-4">
-            We Repair and Service All <span className="text-blue-600">Major Appliances</span>
+            We Repair <span className="text-blue-600">Almost Everything</span>
           </h2>
-          <p className="text-zinc-500 max-w-2xl mx-auto">
-            We repair all major appliances quickly and professionally to keep your home running smoothly and efficiently.
+          <p className="text-zinc-500 max-w-2xl mx-auto mb-4">
+            If it's repairable, we'll handle it. From gadgets to furniture, we've got you covered.
           </p>
         </div>
 

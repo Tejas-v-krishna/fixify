@@ -2,7 +2,7 @@
 
 import { Button } from "../ui/Button";
 import { motion } from "framer-motion";
-import { Star } from "lucide-react";
+import { Star, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 
 export function Hero() {
@@ -26,9 +26,9 @@ export function Hero() {
                         animate={{ opacity: 1, y: 0 }}
                         className="font-heading font-bold text-5xl sm:text-6xl lg:text-7xl text-white leading-[1.1] mb-6"
                     >
-                        Fast Appliance <br />
-                        Repair Services <br />
-                        Nearby
+                        Repair Anything. <br />
+                        Without Leaving <br />
+                        Home.
                     </motion.h1>
 
                     <motion.p
@@ -37,7 +37,7 @@ export function Hero() {
                         transition={{ delay: 0.1 }}
                         className="text-xl text-zinc-300 max-w-lg mb-10 leading-relaxed font-light"
                     >
-                        Our experts diagnose and repair top-tier brands, including Samsung, LG, Whirlpool, Bosch, etc. even many more.
+                        Doorstep pickup, expert repair, and safe delivery — all managed in one simple, transparent platform.
                     </motion.p>
 
                     <motion.div
@@ -47,8 +47,13 @@ export function Hero() {
                         className="flex flex-col sm:flex-row items-center gap-4"
                     >
                         <Link href="/book" className="w-full sm:w-auto">
-                            <Button className="w-full sm:w-auto bg-white hover:bg-zinc-100 text-zinc-950 font-bold h-14 px-10 text-lg rounded-full transition-all shadow-xl">
-                                Schedule Appliance
+                            <Button className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold h-14 px-10 text-lg rounded-full transition-all shadow-xl">
+                                Book a Pickup
+                            </Button>
+                        </Link>
+                        <Link href="/services" className="w-full sm:w-auto">
+                            <Button variant="outline" className="w-full sm:w-auto bg-white/10 backdrop-blur-md text-white border-white/20 hover:bg-white/20 font-bold h-14 px-10 text-lg rounded-full transition-all">
+                                Explore Services
                             </Button>
                         </Link>
                     </motion.div>
@@ -57,12 +62,20 @@ export function Hero() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.3 }}
-                        className="mt-12 flex items-center gap-2 text-sm text-zinc-400"
+                        className="mt-8 flex flex-wrap items-center gap-6 text-sm text-zinc-400"
                     >
-                        <div className="flex text-blue-400">
-                            {[1, 2, 3, 4, 5].map(i => <Star key={i} className="w-4 h-4 fill-current" />)}
+                        <div className="flex items-center gap-2">
+                            <CheckCircle2 className="w-4 h-4 text-blue-400" />
+                            <span>Verified Technicians</span>
                         </div>
-                        <span>4.9/5 Rating based on 12,000+ repairs.</span>
+                        <div className="flex items-center gap-2">
+                            <CheckCircle2 className="w-4 h-4 text-blue-400" />
+                            <span>Real-Time Tracking</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <CheckCircle2 className="w-4 h-4 text-blue-400" />
+                            <span>Secure Handling & Insurance</span>
+                        </div>
                     </motion.div>
                 </div>
             </div>

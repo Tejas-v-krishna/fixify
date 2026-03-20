@@ -1,23 +1,31 @@
 import { Hero } from "@/components/home/Hero";
-import { CommonProblems } from "@/components/home/CommonProblems";
+import { TrustStrip } from "@/components/home/TrustStrip";
+import { ProblemSolution } from "@/components/home/ProblemSolution";
 import { MajorAppliances } from "@/components/home/MajorAppliances";
-import { FindNearMe } from "@/components/home/FindNearMe";
-import { WhyChooseUs } from "@/components/home/WhyChooseUs";
-import { Resources } from "@/components/home/Resources";
+import { HowItWorks } from "@/components/home/HowItWorks";
+import { MapFeature } from "@/components/home/MapFeature";
+import { GofexCommunity } from "@/components/home/GofexCommunity";
+import { InsuranceSection } from "@/components/home/InsuranceSection";
+import { FeatureHighlights } from "@/components/home/FeatureHighlights";
+import { Testimonials } from "@/components/home/Testimonials";
 import { FAQ } from "@/components/home/FAQ";
-import { NeighborlySection } from "@/components/home/NeighborlySection";
+import { CallToAction } from "@/components/home/CallToAction";
 
 export default function Home() {
   return (
     <div className="bg-white">
       <Hero />
-      <CommonProblems />
+      <TrustStrip />
+      <ProblemSolution />
       <MajorAppliances />
-      <FindNearMe />
-      <WhyChooseUs />
-      <Resources />
+      <HowItWorks />
+      <MapFeature />
+      <GofexCommunity />
+      <InsuranceSection />
+      <FeatureHighlights />
+      <Testimonials />
       <FAQ />
-      <NeighborlySection />
+      <CallToAction />
     </div>
   );
 }

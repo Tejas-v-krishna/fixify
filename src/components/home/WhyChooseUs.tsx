@@ -32,7 +32,7 @@ export function WhyChooseUs() {
           {/* Left Content */}
           <div>
             <h2 className="text-4xl font-heading font-bold text-zinc-900 mb-8 leading-tight">
-              Why Choose <span className="text-blue-600">Mr. Appliance</span> to Repair
+              Why Choose <span className="text-blue-600">Gofex</span> to Repair
             </h2>
             <p className="text-zinc-500 mb-12 max-w-lg">
               Reliable appliance repair with trusted technicians ensuring assistance at any single time.

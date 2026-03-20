@@ -1,48 +1,52 @@
 "use client";
 
-import Link from "next/link";
-import { Button } from "@/components/ui/Button";
 import { motion } from "framer-motion";
+import { Button } from "../ui/Button";
+import Link from "next/link";
 
 export function CallToAction() {
-    return (
-        <section className="py-24 relative overflow-hidden bg-background">
-            {/* Background Gradient */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#2DD4BF]/20 to-[#818CF8]/20 dark:from-[#2DD4BF]/10 dark:to-[#818CF8]/10" />
-            <div className="absolute inset-0 backdrop-blur-3xl" />
-
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    className="p-12 rounded-[3rem] bg-background/50 dark:bg-black/20 border border-border dark:border-white/20 shadow-2xl backdrop-blur-xl"
-                >
-                    <h2 className="text-4xl md:text-6xl font-black text-foreground dark:text-white mb-6 tracking-tight">
-                        Stop hoarding <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">broken things.</span>
-                    </h2>
-
-                    <p className="text-xl md:text-2xl text-muted-foreground dark:text-[#A0A0C0] mb-10 font-light">
-                        Clear your clutter. Restore your favorites. Save the planet.
-                    </p>
-
-                    <div className="flex flex-col items-center gap-4">
-                        <Link href="/book">
-                            <Button className="h-16 px-10 text-xl rounded-full bg-foreground dark:bg-white text-background dark:text-black font-bold hover:scale-105 transition-transform shadow-xl">
-                                Book Your First Pickup
-                            </Button>
-                        </Link>
-                        <p className="text-sm font-medium text-[#2DD4BF] flex items-center gap-2">
-                            <span className="relative flex h-3 w-3">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2DD4BF] opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-3 w-3 bg-[#2DD4BF]"></span>
-                            </span>
-                            Arriving in your area in 45 mins.
-                        </p>
-                    </div>
-                </motion.div>
-            </div>
-        </section>
-    );
+  return (
+    <section className="py-24 bg-zinc-50 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative rounded-[40px] bg-zinc-900 p-12 md:p-16 lg:p-24 overflow-hidden text-center shadow-2xl">
+          {/* Decorative gradients */}
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,rgba(37,99,235,0.1),transparent)] pointer-events-none" />
+          <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-[radial-gradient(circle_at_bottom_left,rgba(37,99,235,0.05),transparent)] pointer-events-none" />
+          
+          <div className="relative z-10 max-w-3xl mx-auto">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-8 leading-tight"
+            >
+              Ready to Repair <br />
+              <span className="text-blue-500">Without the Hassle?</span>
+            </motion.h2>
+            <p className="text-zinc-400 text-xl mb-12 max-w-xl mx-auto leading-relaxed">
+              Join thousands of happy customers who manage their repairs the smart way.
+            </p>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="flex flex-col sm:flex-row items-center justify-center gap-6"
+            >
+              <Link href="/book" className="w-full sm:w-auto">
+                <Button size="lg" className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold h-16 px-12 text-lg rounded-full shadow-2xl transition-all hover:scale-105">
+                  Book a Pickup
+                </Button>
+              </Link>
+              <Link href="/signup" className="w-full sm:w-auto">
+                <Button variant="outline" size="lg" className="w-full sm:w-auto border-zinc-700 text-white hover:bg-zinc-800 font-bold h-16 px-12 text-lg rounded-full transition-all">
+                  Get Started
+                </Button>
+              </Link>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }

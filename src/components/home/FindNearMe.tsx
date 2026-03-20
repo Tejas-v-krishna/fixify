@@ -24,7 +24,7 @@ export function FindNearMe() {
               viewport={{ once: true }}
               className="text-4xl md:text-5xl font-heading font-bold text-white mb-6"
             >
-              Find a Mr. Appliance Near Me Today
+              Find a Gofex Near Me Today
             </motion.h2>
             <motion.p 
               initial={{ opacity: 0, y: 10 }}

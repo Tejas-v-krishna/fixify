@@ -10,20 +10,24 @@ export function FAQ() {
 
     const faqs = [
         {
-            q: "What makes Mr. Appliance different from other repair services?",
-            a: "We provide expert, friendly, and efficient appliance repair service, treating your home with care and professionalism. Our upfront pricing and trusted quality guarantee mean you're always in safe hands.",
+            q: "How does pickup work?",
+            a: "Simply schedule a pickup through our platform. A verified agent will come to your doorstep at the chosen time, safely collect your item, and provide a digital receipt with a unique tracking ID.",
         },
         {
-            q: "What types of appliances do you repair and maintain?",
-            a: "We repair all major household appliances including refrigerators, freezers, dishwashers, washing machines, dryers, ovens, and stoves. We also provide maintenance services to keep them running efficiently.",
+            q: "How is pricing decided?",
+            a: "Pricing is transparent and based on the type of repair and parts required. We provide a detailed estimate after our experts diagnose the item. No hidden costs, ever.",
         },
         {
-            q: "Why is dryer vent cleaning important?",
-            a: "Regular dryer vent cleaning is essential for preventing fires and improving dryer efficiency. It also helps extend the life of your appliance by reducing strain on the motor.",
+            q: "Is my product safe?",
+            a: "Yes, your product is fully protected. We use verified technicians only, digital tracking at every step, and offer optional insurance for extra peace of mind.",
         },
         {
-            q: "How does my gas oven glow like it's hot even when it's not heating?",
-            a: "The glow you see is from the igniter. If the igniter is glowing but the oven isn't heating, it may be because the igniter is too weak to open the gas valve or there's a problem with the valve itself.",
+            q: "What if something goes wrong?",
+            a: "We stand by our quality. If a repair doesn't meet our standards or something goes wrong, our support team is available to resolve the issue quickly, backed by our service guarantee.",
+        },
+        {
+            q: "Can I track my repair?",
+            a: "Absolutely! You get live real-time updates through your user dashboard. You'll know exactly when your item is picked up, being repaired, and out for delivery.",
         },
     ];
 

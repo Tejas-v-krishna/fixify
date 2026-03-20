@@ -16,10 +16,10 @@ export function Footer() {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                                 </svg>
                             </div>
-                            <span className="text-xl font-bold tracking-tight text-zinc-900 uppercase">Mr. Appliance</span>
+                            <span className="text-xl font-bold tracking-tight text-zinc-900 uppercase">Gofex</span>
                         </Link>
                         <p className="text-zinc-500 text-sm mb-6 leading-relaxed max-w-xs">
-                            Expert appliance repair services for your home. We&apos;re proud to be part of the Neighborly family.
+                            Expert appliance repair services for your home. We&apos;re proud to be part of the Gofex family.
                         </p>
                         <div className="flex items-center gap-4">
                             <Link href="#" className="w-10 h-10 rounded-full border border-zinc-200 flex items-center justify-center text-zinc-400 hover:text-blue-600 hover:border-blue-600 transition-all">
@@ -41,7 +41,7 @@ export function Footer() {
                     <div>
                         <h4 className="font-bold text-zinc-900 mb-6">Company</h4>
                         <ul className="space-y-4">
-                            <li><Link href="#" className="text-zinc-500 hover:text-blue-600 transition-colors">The Neighborly App</Link></li>
+                            <li><Link href="#" className="text-zinc-500 hover:text-blue-600 transition-colors">The Gofex App</Link></li>
                             <li><Link href="#" className="text-zinc-500 hover:text-blue-600 transition-colors">Why Us</Link></li>
                             <li><Link href="#" className="text-zinc-500 hover:text-blue-600 transition-colors">About Us</Link></li>
                             <li><Link href="#" className="text-zinc-500 hover:text-blue-600 transition-colors">Contact Us</Link></li>
@@ -69,7 +69,7 @@ export function Footer() {
                 </div>
 
                 <div className="pt-8 border-t border-zinc-100 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-zinc-400">
-                    <p>© 2026 Mr. Appliance. All rights reserved.</p>
+                    <p>© 2026 Gofex. All rights reserved.</p>
                     <div className="flex gap-8">
                         <Link href="#" className="hover:text-zinc-900 transition-colors">Privacy Policy</Link>
                     </div>
